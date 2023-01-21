@@ -62,28 +62,8 @@
                 </Grid>
 
                 <ScrollViewer Grid.Row="3" Grid.Column="0" Height="220" Name="scrollViewer4SpecialCharacterButton">
-                    <WrapPanel Name="wrapPanel1">
-                        <Button Name="a_button" Content="あ" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="i_button" Content="い" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="u_button" Content="う" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="e_button" Content="え" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="o_button" Content="お" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="ka_button" Content="か" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="ki_button" Content="き" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="ku_button" Content="く" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="ke_button" Content="け" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="ko_button" Content="こ" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="sa_button" Content="さ" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="shi_button" Content="し" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="su_button" Content="す" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="se_button" Content="せ" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="so_button" Content="そ" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="ta_button" Content="た" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="chi_button" Content="ち" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="tsu_button" Content="つ" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="te_button" Content="て" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                        <Button Name="to_button" Content="と" Width="{StaticResource ButtonWidth}" Height="{StaticResource ButtonHeight}" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
-                    </WrapPanel>
+                    <StackPanel Name="stackPanel1">
+                    </StackPanel>
                 </ScrollViewer>
             </Grid>
         </ScrollViewer>

@@ -26,6 +26,63 @@ namespace SpecialCharacterAssistance2.Forms
 
             this.typeComboBox.Items.Add( "ギリシャアルファベット(大文字)" );
             this.typeComboBox.SelectedIndex = 0;
+
+            var wrapPanels = CreateWrapPanels();
+            stackPanel1.Children.Add( wrapPanels[1] );
+
+            //stackPanel1.Children.Remove( wrapPanel1 );
+        }
+
+        private List<WrapPanel> CreateWrapPanels()
+        {
+            var wrapPanels = new List<WrapPanel>();
+
+            {
+                var wrapPanel1 = new WrapPanel();
+                NameScope.SetNameScope( wrapPanel1, new NameScope() );
+                wrapPanels.Add( wrapPanel1 );
+
+                var button1 = new Button(){
+                    Name = "button1",
+                    Content = "д",
+                    Margin = new Thickness( 5, 5, 5, 5 ),
+                    Width  = 80,
+                    Height = 60
+                };
+
+                button1.Click += new RoutedEventHandler( SpecialCharacterButton_Click );
+
+                wrapPanel1.Children.Add( button1 );
+            }
+
+            {
+                var wrapPanel2 = new WrapPanel();
+                NameScope.SetNameScope( wrapPanel2, new NameScope() );
+                wrapPanels.Add( wrapPanel2 );
+
+                var button1 = new Button(){
+                    Name = "button1",
+                    Content = "<",
+                    Margin = new Thickness( 5, 5, 5, 5 ),
+                    Width  = 80,
+                    Height = 60
+                };
+                button1.Click += new RoutedEventHandler( SpecialCharacterButton_Click );
+
+                var button2 = new Button(){
+                    Name = "button2",
+                    Content = ">",
+                    Margin = new Thickness( 5, 5, 5, 5 ),
+                    Width  = 80,
+                    Height = 60
+                };
+                button2.Click += new RoutedEventHandler( SpecialCharacterButton_Click );
+
+                wrapPanel2.Children.Add( button1 );
+                wrapPanel2.Children.Add( button2 );
+            }
+
+        return wrapPanels;
         }
 
         private void MainWindow_Loaded(object sender, EventArgs args)
