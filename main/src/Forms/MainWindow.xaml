@@ -13,8 +13,8 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Grid.Column="0">
             <MenuItem Header="ファイル(_F)">
-                <MenuItem IsCheckable="True" Header="開く(_O)" />
-                <MenuItem IsCheckable="True" Header="名前を付けて保存(_S)" />
+                <MenuItem Header="開く(_O)" Click="OpenFileMenuItem_Click" />
+                <MenuItem Header="名前を付けて保存(_S)" Click="SaveFileMenuItem_Click" />
             </MenuItem>
         </Menu>
 
@@ -63,98 +63,37 @@
 
                 <ScrollViewer Grid.Row="3" Grid.Column="0" Height="220">
                     <UniformGrid>
-                        <Button Name="a_button" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="i_button" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="u_button" Content="う" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="e_button" Content="え" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="o_button" Content="お" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ka_button" Content="か" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ki_button" Content="き" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ku_button" Content="く" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ke_button" Content="け" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ko_button" Content="こ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="sa_button" Content="さ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="shi_button" Content="し" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="su_button" Content="す" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="se_button" Content="せ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="so_button" Content="そ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ta_button" Content="た" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="chi_button" Content="ち" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="tsu_button" Content="つ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="te_button" Content="て" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="to_button" Content="と" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="na_button" Content="な" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ni_button" Content="に" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="nu_button" Content="ぬ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ne_button" Content="ね" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="no_button" Content="の" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ha_button" Content="は" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="hi_button" Content="ひ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="hu_button" Content="ふ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="he_button" Content="へ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ho_button" Content="ほ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ma_button" Content="ま" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="mi_button" Content="み" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="mu_button" Content="む" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="me_button" Content="め" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="mo_button" Content="も" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ya_button" Content="や" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="yu_button" Content="ゆ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="yo_button" Content="よ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ra_button" Content="ら" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ri_button" Content="り" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ru_button" Content="る" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="re_button" Content="れ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ro_button" Content="ろ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="wa_button" Content="わ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="wo_button" Content="を" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="n_button" Content="ん" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="a_button2" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="i_button2" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="u_button2" Content="う" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="e_button2" Content="え" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="o_button2" Content="お" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ka_button2" Content="か" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ki_button2" Content="き" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ku_button2" Content="く" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ke_button2" Content="け" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ko_button2" Content="こ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="sa_button2" Content="さ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="shi_button2" Content="し" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="su_button2" Content="す" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="se_button2" Content="せ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="so_button2" Content="そ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ta_button2" Content="た" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="chi_button2" Content="ち" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="tsu_button2" Content="つ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="te_button2" Content="て" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="to_button2" Content="と" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="na_button2" Content="な" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ni_button2" Content="に" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="nu_button2" Content="ぬ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ne_button2" Content="ね" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="no_button2" Content="の" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ha_button2" Content="は" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="hi_button2" Content="ひ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="hu_button2" Content="ふ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="he_button2" Content="へ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ho_button2" Content="ほ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ma_button2" Content="ま" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="mi_button2" Content="み" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="mu_button2" Content="む" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="me_button2" Content="め" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="mo_button2" Content="も" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ya_button2" Content="や" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="yu_button2" Content="ゆ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="yo_button2" Content="よ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ra_button2" Content="ら" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ri_button2" Content="り" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ru_button2" Content="る" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="re_button2" Content="れ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="ro_button2" Content="ろ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="wa_button2" Content="わ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="wo_button2" Content="を" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                        <Button Name="n_button2" Content="ん" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="a_button" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="i_button" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="u_button" Content="う" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="e_button" Content="え" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="o_button" Content="お" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ka_button" Content="か" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ki_button" Content="き" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ku_button" Content="く" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ke_button" Content="け" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ko_button" Content="こ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="sa_button" Content="さ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="shi_button" Content="し" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="su_button" Content="す" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="se_button" Content="せ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="so_button" Content="そ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ta_button" Content="た" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="chi_button" Content="ち" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="tsu_button" Content="つ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="te_button" Content="て" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="to_button" Content="と" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="na_button" Content="な" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ni_button" Content="に" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="nu_button" Content="ぬ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ne_button" Content="ね" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="no_button" Content="の" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ha_button" Content="は" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="hi_button" Content="ひ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="hu_button" Content="ふ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="he_button" Content="へ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ho_button" Content="ほ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
+                        <Button Name="ma_button" Content="ま" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
                     </UniformGrid>
                 </ScrollViewer>
             </Grid>

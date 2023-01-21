@@ -25,6 +25,7 @@ namespace SpecialCharacterAssistance2.Forms
             InitializeComponent();
 
             this.typeComboBox.Items.Add( "ギリシャアルファベット(大文字)" );
+            this.typeComboBox.SelectedIndex = 0;
         }
 
         private void MainWindow_Loaded(object sender, EventArgs args)
@@ -39,8 +40,24 @@ namespace SpecialCharacterAssistance2.Forms
             //MessageBox.Show( data.MainWindow.ToString() );
         }
 
-        private void HtmlConversionButton_Click( object sender, RoutedEventArgs s ){
-            MessageBox.Show( "h = " + this.Height + ", w = " + this.Width );
+        private void OpenFileMenuItem_Click( object sender, RoutedEventArgs s )
+        {
+
+        }
+
+        private void SaveFileMenuItem_Click( object sender, RoutedEventArgs s )
+        {
+
+        }
+
+        private void HtmlConversionButton_Click( object sender, RoutedEventArgs s )
+        {
+            MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
+        }
+
+        private void SpecialCharacterButton_Click( object sender, RoutedEventArgs s )
+        {
+            MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
     }
 }
