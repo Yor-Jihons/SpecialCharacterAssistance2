@@ -8,7 +8,7 @@
         Title="SpecialCharacterAssistance2" Height="650" Width="850" Loaded="MainWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Grid.Column="0">
@@ -18,74 +18,76 @@
             </MenuItem>
         </Menu>
 
-        <Grid Grid.Row="1" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="3*" />
-
-                <RowDefinition Height="7*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="0" Grid.Column="0" Content="特殊文字入力支援" Style="{StaticResource Font4TitleLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" />
-            <TextBox Grid.Row="1" Grid.Column="0" Style="{StaticResource Font4TextBox}" Margin="5,5,5,5"
-                AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" />
-
-            <Grid Grid.Row="2" Grid.Column="0">
+        <ScrollViewer Grid.Row="1" Grid.Column="0">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+
+                    <RowDefinition Height="7*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="0" Grid.Column="0">
+                <Label Grid.Row="0" Grid.Column="0" Content="特殊文字入力支援" Style="{StaticResource Font4TitleLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" />
+                <TextBox Grid.Row="1" Grid.Column="0" Style="{StaticResource Font4TextBox}" Margin="5,5,5,5"
+                    AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" />
+
+                <Grid Grid.Row="2" Grid.Column="0">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Label Grid.Row="0" Grid.Column="0" Content="種類(_T):" Style="{StaticResource Font4TypeLabel}" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" Margin="5,5,5,5" />
-                    <ComboBox Name="typeComboBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource Font4TypeComboBox}" Margin="5,5,5,5" />
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="種類(_T):" Style="{StaticResource Font4TypeLabel}" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" Margin="5,5,5,5" />
+                        <ComboBox Name="typeComboBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource Font4TypeComboBox}" Margin="5,5,5,5" />
+                    </Grid>
+
+                    <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" />
                 </Grid>
 
-                <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" />
+                <ScrollViewer Grid.Row="3" Grid.Column="0">
+                    <UniformGrid>
+                        <Button Name="a_button" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="i_button" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="u_button" Content="う" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="e_button" Content="え" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="o_button" Content="お" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ka_button" Content="か" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ki_button" Content="き" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ku_button" Content="く" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ke_button" Content="け" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ko_button" Content="こ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="sa_button" Content="さ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="shi_button" Content="し" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="su_button" Content="す" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="se_button" Content="せ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="so_button" Content="そ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ta_button" Content="た" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="chi_button" Content="ち" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="tsu_button" Content="つ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="te_button" Content="て" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="to_button" Content="と" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                    </UniformGrid>
+                </ScrollViewer>
             </Grid>
-
-            <ScrollViewer Grid.Row="3" Grid.Column="0">
-                <UniformGrid>
-                    <Button Name="a_button" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="i_button" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="u_button" Content="う" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="e_button" Content="え" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="o_button" Content="お" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="ka_button" Content="か" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="ki_button" Content="き" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="ku_button" Content="く" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="ke_button" Content="け" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="ko_button" Content="こ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="sa_button" Content="さ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="shi_button" Content="し" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="su_button" Content="す" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="se_button" Content="せ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="so_button" Content="そ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="ta_button" Content="た" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="chi_button" Content="ち" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="tsu_button" Content="つ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="te_button" Content="て" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                    <Button Name="to_button" Content="と" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-                </UniformGrid>
-            </ScrollViewer>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>
