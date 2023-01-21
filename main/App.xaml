@@ -1,0 +1,11 @@
+﻿<Application x:Class="SpecialCharacterAssistance2.Apps.App"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:local="clr-namespace:SpecialCharacterAssistance2.Apps"
+            StartupUri=".\src\Forms\MainWindow.xaml"
+            Startup="ApplicationStartup"
+            Exit="Application_Exit">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <AssemblyName>SpecialCharacterAssistance2</AssemblyName>
+    <ApplicationIcon>.\res\Icons\appicon.ico</ApplicationIcon>
+    <UseWPF>true</UseWPF>
+    <DebugType Condition="'$(Configuration)' != 'Debug'">none</DebugType>
+    <Version>1.0.0</Version>
+    <Company>Company1</Company>
+    <Copyright>Mr.Crack</Copyright>
+  </PropertyGroup>
+
+  <!-- Show message -->
+  <Target Name="PrintCompile" BeforeTargets="Build">
+    <Message Text="----- Compile $(AssemblyName) as WPF, $(Configuration) -----" Importance="high" />
+  </Target>
+
+</Project>
