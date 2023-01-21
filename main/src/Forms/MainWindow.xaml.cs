@@ -27,7 +27,7 @@ namespace SpecialCharacterAssistance2.Forms
             this.typeComboBox.Items.Add( "ギリシャアルファベット(大文字)" );
             this.typeComboBox.SelectedIndex = 0;
 
-            var wrapPanels = CreateWrapPanels( SpecialCharacterButton_Click, (Style)this.FindResource( "Font4Buttons" ) );
+            this.wrapPanels = CreateWrapPanels( SpecialCharacterButton_Click, (Style)this.FindResource( "Font4Buttons" ) );
 
             stackPanel1.Children.Add( wrapPanels[0] );
 
@@ -53,12 +53,34 @@ namespace SpecialCharacterAssistance2.Forms
                 wrapPanel1.Children.Add( button1 );
 
                 var button2 = new Button(){
-                    Name = "button1", Content = "阿", Style  = resource,
+                    Name = "button2", Content = "阿", Style  = resource,
                     Margin = new Thickness( 5, 5, 5, 5 ),
                     Width  = 80, Height = 60
                 };
                 button2.Click += new RoutedEventHandler( handler );
                 wrapPanel1.Children.Add( button2 );
+            }
+
+            {
+                var wrapPanel2 = new WrapPanel();
+                NameScope.SetNameScope( wrapPanel2, new NameScope() );
+                wrapPanels.Add( wrapPanel2 );
+
+                var button1 = new Button(){
+                    Name = "button1", Content = "<", Style  = resource,
+                    Margin = new Thickness( 5, 5, 5, 5 ),
+                    Width  = 80, Height = 60
+                };
+                button1.Click += new RoutedEventHandler( handler );
+                wrapPanel2.Children.Add( button1 );
+
+                var button2 = new Button(){
+                    Name = "button2", Content = ">", Style  = resource,
+                    Margin = new Thickness( 5, 5, 5, 5 ),
+                    Width  = 80, Height = 60
+                };
+                button2.Click += new RoutedEventHandler( handler );
+                wrapPanel2.Children.Add( button2 );
             }
 
         return wrapPanels;
@@ -95,5 +117,7 @@ namespace SpecialCharacterAssistance2.Forms
         {
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
+
+        private List<WrapPanel> wrapPanels;
     }
 }
