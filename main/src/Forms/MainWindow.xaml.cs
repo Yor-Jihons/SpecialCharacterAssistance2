@@ -24,7 +24,9 @@ namespace SpecialCharacterAssistance2.Forms
         {
             InitializeComponent();
 
-            this.typeComboBox.Items.Add( "ギリシャアルファベット(大文字)" );
+            string[] dummyTypes = { "ロシア語", "半角記号", "ギリシャアルファベット(大文字)" };
+
+            foreach( var type in dummyTypes ) this.typeComboBox.Items.Add( type );
             this.typeComboBox.SelectedIndex = 0;
 
             this.wrapPanels = CreateWrapPanels( SpecialCharacterButton_Click, (Style)this.FindResource( "Font4Buttons" ) );
@@ -53,7 +55,7 @@ namespace SpecialCharacterAssistance2.Forms
                 wrapPanel1.Children.Add( button1 );
 
                 var button2 = new Button(){
-                    Name = "button2", Content = "阿", Style  = resource,
+                    Name = "button2", Content = "Я", Style  = resource,
                     Margin = new Thickness( 5, 5, 5, 5 ),
                     Width  = 80, Height = 60
                 };
@@ -86,7 +88,7 @@ namespace SpecialCharacterAssistance2.Forms
         return wrapPanels;
         }
 
-        private void MainWindow_Loaded(object sender, EventArgs args)
+        private void MainWindow_Loaded( object sender, EventArgs args )
         {
             ClassMappings.WindowData data = ClassMappings.WindowData.Load( "data1.xml" );
             if( data == null )
@@ -98,22 +100,27 @@ namespace SpecialCharacterAssistance2.Forms
             //MessageBox.Show( data.MainWindow.ToString() );
         }
 
-        private void OpenFileMenuItem_Click( object sender, RoutedEventArgs s )
+        private void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
 
         }
 
-        private void SaveFileMenuItem_Click( object sender, RoutedEventArgs s )
+        private void SaveFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
 
         }
 
-        private void HtmlConversionButton_Click( object sender, RoutedEventArgs s )
+        private void TypeComboBox_SelectionChanged( object sender, SelectionChangedEventArgs e )
+        {
+            MessageBox.Show( "『" + (sender as ComboBox).SelectedIndex + "』が選択された" );
+        }
+
+        private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
 
-        private void SpecialCharacterButton_Click( object sender, RoutedEventArgs s )
+        private void SpecialCharacterButton_Click( object sender, RoutedEventArgs e )
         {
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }

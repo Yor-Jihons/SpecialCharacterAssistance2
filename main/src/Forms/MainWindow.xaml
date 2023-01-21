@@ -55,7 +55,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0" Content="種類(_T):" Style="{StaticResource Font4TypeLabel}" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" Margin="5,5,5,5" />
-                        <ComboBox Name="typeComboBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource Font4TypeComboBox}" Margin="5,5,5,5" />
+                        <ComboBox Name="typeComboBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource Font4TypeComboBox}" Margin="5,5,5,5" SelectionChanged="TypeComboBox_SelectionChanged" />
                     </Grid>
 
                     <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" Click="HtmlConversionButton_Click" Style="{StaticResource Font4HtmlConversionButton}" />
