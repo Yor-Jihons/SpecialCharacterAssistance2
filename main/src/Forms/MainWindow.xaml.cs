@@ -22,7 +22,9 @@ namespace SpecialCharacterAssistance2.Forms
     {
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
+
+            this.typeComboBox.Items.Add( "ギリシャアルファベット(大文字)" );
         }
 
         private void MainWindow_Loaded(object sender, EventArgs args)

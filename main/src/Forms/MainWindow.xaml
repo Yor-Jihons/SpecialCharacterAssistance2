@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpecialCharacterAssistance2.Forms"
         mc:Ignorable="d"
-        Title="SpecialCharacterAssistance2" Height="450" Width="800" Loaded="MainWindow_Loaded">
+        Title="SpecialCharacterAssistance2" Height="650" Width="850" Loaded="MainWindow_Loaded">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0">
+            <MenuItem Header="ファイル(_F)">
+                <MenuItem IsCheckable="True" Header="開く(_O)" />
+                <MenuItem IsCheckable="True" Header="名前を付けて保存(_S)" />
+            </MenuItem>
+        </Menu>
 
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="特殊文字入力支援" Style="{StaticResource Font4TitleLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" />
+            <TextBox Grid.Row="1" Grid.Column="0" Style="{StaticResource Font4TextBox}" Margin="5,5,5,5"
+                AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" />
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="種類(_T):" Style="{StaticResource Font4TypeLabel}" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" Margin="5,5,5,5" />
+                    <ComboBox Name="typeComboBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource Font4TypeComboBox}" Margin="5,5,5,5" />
+                </Grid>
+
+                <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

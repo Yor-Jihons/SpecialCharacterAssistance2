@@ -1,17 +1,1 @@
-<?xml version="1.0"?>
-<developtime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <title>SpecialCharacterAssistance2</title>
-  <lasttime>0</lasttime>
-  <designphase>
-    <hours>0</hours>
-    <minutes>0</minutes>
-  </designphase>
-  <developphase>
-    <hours>0</hours>
-    <minutes>0</minutes>
-  </developphase>
-  <testphase>
-    <hours>0</hours>
-    <minutes>0</minutes>
-  </testphase>
-</developtime>
+﻿<?xml version="1.0" encoding="utf-8"?><developtime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><title>SpecialCharacterAssistance2</title><lasttime>1</lasttime><designphase><hours>0</hours><minutes>0</minutes></designphase><developphase><hours>0</hours><minutes>47</minutes></developphase><testphase><hours>0</hours><minutes>0</minutes></testphase></developtime>
