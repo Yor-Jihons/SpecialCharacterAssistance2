@@ -34,6 +34,13 @@
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+        <Style x:Key="Font4HtmlConversionButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Century Gothic, メイリオ, Meiryo UI" />
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontStretch" Value="UltraExpanded" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
         <Style x:Key="Font4Buttons" TargetType="Button">
             <Setter Property="FontFamily" Value="Century Gothic, メイリオ, Meiryo UI" />
             <Setter Property="FontWeight" Value="Medium"/>

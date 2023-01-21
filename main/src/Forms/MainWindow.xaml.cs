@@ -38,5 +38,9 @@ namespace SpecialCharacterAssistance2.Forms
             // TODO:
             //MessageBox.Show( data.MainWindow.ToString() );
         }
+
+        private void HtmlConversionButton_Click( object sender, RoutedEventArgs s ){
+            MessageBox.Show( "h = " + this.Height + ", w = " + this.Width );
+        }
     }
 }

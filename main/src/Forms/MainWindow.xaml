@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpecialCharacterAssistance2.Forms"
         mc:Ignorable="d"
-        Title="SpecialCharacterAssistance2" Height="650" Width="850" Loaded="MainWindow_Loaded">
+        Title="SpecialCharacterAssistance2" Height="551.2" Width="870" Loaded="MainWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -22,18 +22,17 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="8*" />
                     <RowDefinition Height="3*" />
 
-                    <RowDefinition Height="7*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="8*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Content="特殊文字入力支援" Style="{StaticResource Font4TitleLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" />
-                <TextBox Grid.Row="1" Grid.Column="0" Style="{StaticResource Font4TextBox}" Margin="5,5,5,5"
+                <TextBox Grid.Row="1" Grid.Column="0" Style="{StaticResource Font4TextBox}" Margin="5,5,5,5" Height="200"
                     AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" />
 
                 <Grid Grid.Row="2" Grid.Column="0">
@@ -60,7 +59,7 @@
                         <ComboBox Name="typeComboBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource Font4TypeComboBox}" Margin="5,5,5,5" />
                     </Grid>
 
-                    <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" />
+                    <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" Click="HtmlConversionButton_Click" Style="{StaticResource Font4HtmlConversionButton}" />
                 </Grid>
 
                 <ScrollViewer Grid.Row="3" Grid.Column="0">
@@ -85,6 +84,32 @@
                         <Button Name="tsu_button" Content="つ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                         <Button Name="te_button" Content="て" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                         <Button Name="to_button" Content="と" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="na_button" Content="な" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ni_button" Content="に" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="nu_button" Content="ぬ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ne_button" Content="ね" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="no_button" Content="の" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ha_button" Content="は" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="hi_button" Content="ひ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="hu_button" Content="ふ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="he_button" Content="へ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ho_button" Content="ほ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ma_button" Content="ま" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="mi_button" Content="み" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="mu_button" Content="む" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="me_button" Content="め" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="mo_button" Content="も" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ya_button" Content="や" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="yu_button" Content="ゆ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="yo_button" Content="よ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ra_button" Content="ら" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ri_button" Content="り" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ru_button" Content="る" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="re_button" Content="れ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="ro_button" Content="ろ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="wa_button" Content="わ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="wo_button" Content="を" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
+                        <Button Name="n_button" Content="ん" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                     </UniformGrid>
                 </ScrollViewer>
             </Grid>
