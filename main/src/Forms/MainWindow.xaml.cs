@@ -35,7 +35,8 @@ namespace SpecialCharacterAssistance2.Forms
                 data = ClassMappings.WindowData.CreateAsNew( (int)this.Width, (int)this.Height );
             }
             ClassMappings.WindowData.Save( data, "data1.xml" );
-            MessageBox.Show( data.MainWindow.ToString() );
+            // TODO:
+            //MessageBox.Show( data.MainWindow.ToString() );
         }
     }
 }

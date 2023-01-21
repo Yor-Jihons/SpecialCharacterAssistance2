@@ -10,7 +10,7 @@
             <Setter Property="FontFamily" Value="Century Gothic, メイリオ, Meiryo UI" />
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontStretch" Value="UltraExpanded" />
-            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontSize" Value="28" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
         <Style x:Key="Font4TextBox" TargetType="TextBox">
@@ -28,6 +28,13 @@
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
         <Style x:Key="Font4TypeComboBox" TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Century Gothic, メイリオ, Meiryo UI" />
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontStretch" Value="UltraExpanded" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style x:Key="Font4Buttons" TargetType="Button">
             <Setter Property="FontFamily" Value="Century Gothic, メイリオ, Meiryo UI" />
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="FontStretch" Value="UltraExpanded" />
