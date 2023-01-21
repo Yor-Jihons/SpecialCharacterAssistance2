@@ -27,14 +27,16 @@ namespace SpecialCharacterAssistance2.Forms
             this.typeComboBox.Items.Add( "ギリシャアルファベット(大文字)" );
             this.typeComboBox.SelectedIndex = 0;
 
-            var wrapPanels = CreateWrapPanels( SpecialCharacterButton_Click );
-            stackPanel1.Children.Add( wrapPanels[1] );
+            var wrapPanels = CreateWrapPanels( SpecialCharacterButton_Click, (Style)this.FindResource( "Font4Buttons" ) );
+
+            stackPanel1.Children.Add( wrapPanels[0] );
 
             //stackPanel1.Children.Remove( wrapPanel1 );
         }
 
-        private static List<WrapPanel> CreateWrapPanels( RoutedEventHandler handler )
+        private static List<WrapPanel> CreateWrapPanels( RoutedEventHandler handler, Style resource )
         {
+
             var wrapPanels = new List<WrapPanel>();
 
             {
@@ -43,43 +45,20 @@ namespace SpecialCharacterAssistance2.Forms
                 wrapPanels.Add( wrapPanel1 );
 
                 var button1 = new Button(){
-                    Name = "button1",
-                    Content = "д",
+                    Name = "button1", Content = "д", Style  = resource,
                     Margin = new Thickness( 5, 5, 5, 5 ),
-                    Width  = 80,
-                    Height = 60
+                    Width  = 80, Height = 60
                 };
-
                 button1.Click += new RoutedEventHandler( handler );
-
                 wrapPanel1.Children.Add( button1 );
-            }
-
-            {
-                var wrapPanel2 = new WrapPanel();
-                NameScope.SetNameScope( wrapPanel2, new NameScope() );
-                wrapPanels.Add( wrapPanel2 );
-
-                var button1 = new Button(){
-                    Name = "button1",
-                    Content = "<",
-                    Margin = new Thickness( 5, 5, 5, 5 ),
-                    Width  = 80,
-                    Height = 60
-                };
-                button1.Click += new RoutedEventHandler( handler );
 
                 var button2 = new Button(){
-                    Name = "button2",
-                    Content = ">",
+                    Name = "button1", Content = "阿", Style  = resource,
                     Margin = new Thickness( 5, 5, 5, 5 ),
-                    Width  = 80,
-                    Height = 60
+                    Width  = 80, Height = 60
                 };
                 button2.Click += new RoutedEventHandler( handler );
-
-                wrapPanel2.Children.Add( button1 );
-                wrapPanel2.Children.Add( button2 );
+                wrapPanel1.Children.Add( button2 );
             }
 
         return wrapPanels;
