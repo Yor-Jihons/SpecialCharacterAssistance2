@@ -27,13 +27,13 @@ namespace SpecialCharacterAssistance2.Forms
             this.typeComboBox.Items.Add( "ギリシャアルファベット(大文字)" );
             this.typeComboBox.SelectedIndex = 0;
 
-            var wrapPanels = CreateWrapPanels();
+            var wrapPanels = CreateWrapPanels( SpecialCharacterButton_Click );
             stackPanel1.Children.Add( wrapPanels[1] );
 
             //stackPanel1.Children.Remove( wrapPanel1 );
         }
 
-        private List<WrapPanel> CreateWrapPanels()
+        private static List<WrapPanel> CreateWrapPanels( RoutedEventHandler handler )
         {
             var wrapPanels = new List<WrapPanel>();
 
@@ -50,7 +50,7 @@ namespace SpecialCharacterAssistance2.Forms
                     Height = 60
                 };
 
-                button1.Click += new RoutedEventHandler( SpecialCharacterButton_Click );
+                button1.Click += new RoutedEventHandler( handler );
 
                 wrapPanel1.Children.Add( button1 );
             }
@@ -67,7 +67,7 @@ namespace SpecialCharacterAssistance2.Forms
                     Width  = 80,
                     Height = 60
                 };
-                button1.Click += new RoutedEventHandler( SpecialCharacterButton_Click );
+                button1.Click += new RoutedEventHandler( handler );
 
                 var button2 = new Button(){
                     Name = "button2",
@@ -76,7 +76,7 @@ namespace SpecialCharacterAssistance2.Forms
                     Width  = 80,
                     Height = 60
                 };
-                button2.Click += new RoutedEventHandler( SpecialCharacterButton_Click );
+                button2.Click += new RoutedEventHandler( handler );
 
                 wrapPanel2.Children.Add( button1 );
                 wrapPanel2.Children.Add( button2 );
