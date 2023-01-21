@@ -61,7 +61,7 @@
                     <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" Click="HtmlConversionButton_Click" Style="{StaticResource Font4HtmlConversionButton}" />
                 </Grid>
 
-                <ScrollViewer Grid.Row="3" Grid.Column="0" Height="220">
+                <ScrollViewer Grid.Row="3" Grid.Column="0" Height="220" Name="ScrollViewer4SpecialCharacterButton">
                     <UniformGrid>
                         <Button Name="a_button" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
                         <Button Name="i_button" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" Click="SpecialCharacterButton_Click" />
