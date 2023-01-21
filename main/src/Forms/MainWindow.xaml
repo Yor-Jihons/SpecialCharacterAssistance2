@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpecialCharacterAssistance2.Forms"
         mc:Ignorable="d"
-        Title="SpecialCharacterAssistance2" Height="551.2" Width="870" Loaded="MainWindow_Loaded">
+        Title="SpecialCharacterAssistance2" Height="580" Width="870" Loaded="MainWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -22,10 +22,9 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="9*" />
                     <RowDefinition Height="3*" />
-
-                    <RowDefinition Height="8*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -62,7 +61,7 @@
                     <Button Grid.Row="0" Grid.Column="1" Name="htmlConversionButton" Content="HTMLに変換" Margin="5,5,5,5" Click="HtmlConversionButton_Click" Style="{StaticResource Font4HtmlConversionButton}" />
                 </Grid>
 
-                <ScrollViewer Grid.Row="3" Grid.Column="0">
+                <ScrollViewer Grid.Row="3" Grid.Column="0" Height="220">
                     <UniformGrid>
                         <Button Name="a_button" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                         <Button Name="i_button" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
@@ -110,7 +109,6 @@
                         <Button Name="wa_button" Content="わ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                         <Button Name="wo_button" Content="を" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                         <Button Name="n_button" Content="ん" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
-
                         <Button Name="a_button2" Content="あ" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                         <Button Name="i_button2" Content="い" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
                         <Button Name="u_button2" Content="う" Style="{StaticResource Font4Buttons}" Margin="5,5,5,5" />
