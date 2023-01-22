@@ -28,7 +28,9 @@ namespace SpecialCharacterAssistance2.Forms
 
             this.specialcharacters = ClassMappings.SpecialCharacters.Load( jsonfilePath );
 
-            foreach( var genre in specialcharacters.Genres ) this.typeComboBox.Items.Add( genre.Name );
+            foreach( var genre in specialcharacters.Genres ){
+                this.typeComboBox.Items.Add( genre.Name );
+            }
             this.typeComboBox.SelectedIndex = 0;
 
             this.wrapPanels = CreateWrapPanels(
@@ -37,50 +39,7 @@ namespace SpecialCharacterAssistance2.Forms
                 (Style)this.FindResource( "Font4Buttons" )
             );
 
-            stackPanel1.Children.Add( wrapPanels[0] );
-
-            //stackPanel1.Children.Remove( wrapPanel1 );
-        }
-
-        /// <summary>
-        /// Create the list of the class WrapPanel, in order to be able to switch them.
-        /// </summary>
-        /// <param name="specialcharacters">The object of the class SpecialCharacters, which contains the json data.</param>
-        /// <param name="handler">The event buttons was clicked.</param>
-        /// <param name="resource">The font resource for buttons.</param>
-        /// <returns>The list of the class WrapPanel.</returns>
-        private static List<WrapPanel> CreateWrapPanels( ClassMappings.SpecialCharacters specialcharacters, RoutedEventHandler handler, Style resource )
-        {
-            var wrapPanels = new List<WrapPanel>();
-
-            foreach( var genre in specialcharacters.Genres )
-            {
-                if( !genre.CanUse ) continue;
-
-                var wrapPanel = new WrapPanel();
-                NameScope.SetNameScope( wrapPanel, new NameScope() );
-                wrapPanels.Add( wrapPanel );
-
-                foreach( var specialcharacter in genre.SpecialCharacters )
-                {
-                    if( !specialcharacter.CanUse ) continue;
-
-                    var button = new Button()
-                    {
-                        Name    = ("c" + specialcharacter.Id),
-                        Content = specialcharacter.Character,
-                        Style   = resource,
-                        Margin  = new Thickness( 5, 5, 5, 5 ),
-                        Width   = 80,
-                        Height  = 60
-                    };
-                    button.Click += new RoutedEventHandler( handler );
-
-                    wrapPanel.Children.Add( button );
-                }
-            }
-
-        return wrapPanels;
+            this.TypeComboBox_SelectionChanged( typeComboBox, null );
         }
 
         /// <summary>
@@ -127,8 +86,18 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void TypeComboBox_SelectionChanged( object sender, SelectionChangedEventArgs e )
         {
-            // TODO: 要編集
-            MessageBox.Show( "『" + (sender as ComboBox).SelectedIndex + "』が選択された" );
+            int selectedIndex = (sender as ComboBox).SelectedIndex;
+            if( selectedIndex == -1 ) return;
+
+            if( wrapPanels == null ) return;
+
+            if( prevWrapPanel != null ) stackPanel1.Children.Remove( prevWrapPanel );
+
+            stackPanel1.Children.Add( wrapPanels[ selectedIndex ] );
+
+            this.prevWrapPanel = wrapPanels[ selectedIndex ];
+
+            //stackPanel1.Children.Remove( wrapPanel1 );
         }
 
         /// <summary>
@@ -153,10 +122,50 @@ namespace SpecialCharacterAssistance2.Forms
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
 
+        /// <summary>
+        /// Create the list of the class WrapPanel, in order to be able to switch them.
+        /// </summary>
+        /// <param name="specialcharacters">The object of the class SpecialCharacters, which contains the json data.</param>
+        /// <param name="handler">The event buttons was clicked.</param>
+        /// <param name="resource">The font resource for buttons.</param>
+        /// <returns>The list of the class WrapPanel.</returns>
+        private static List<WrapPanel> CreateWrapPanels( ClassMappings.SpecialCharacters specialcharacters, RoutedEventHandler handler, Style resource )
+        {
+            var wrapPanels = new List<WrapPanel>();
+
+            foreach( var genre in specialcharacters.Genres )
+            {
+                var wrapPanel = new WrapPanel();
+                NameScope.SetNameScope( wrapPanel, new NameScope() );
+                wrapPanels.Add( wrapPanel );
+
+                foreach( var specialcharacter in genre.SpecialCharacters )
+                {
+                    if( !specialcharacter.CanUse ) continue;
+
+                    var button = new Button()
+                    {
+                        Name    = ("c" + specialcharacter.Id),
+                        Content = specialcharacter.Character,
+                        Style   = resource,
+                        Margin  = new Thickness( 5, 5, 5, 5 ),
+                        Width   = 80,
+                        Height  = 60
+                    };
+                    button.Click += new RoutedEventHandler( handler );
+
+                    wrapPanel.Children.Add( button );
+                }
+            }
+        return wrapPanels;
+        }
+
         /// <value>The object of the class SpecialCharacters which contains the json data.</value>
         private ClassMappings.SpecialCharacters specialcharacters;
 
         /// <value>The list of the class WrapPanel in order to switch.</value>
         private List<WrapPanel> wrapPanels;
+
+        private WrapPanel prevWrapPanel;
     }
 }
