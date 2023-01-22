@@ -57,6 +57,17 @@ namespace SpecialCharacterAssistance2.Forms
 
             var wrapPanels = new List<WrapPanel>();
 
+            foreach( var genre in specialcharacters.Genres )
+            {
+                if( !genre.CanUse ) continue;
+
+                for( int i = 0; i < genre.SpecialCharacters.Count; i++ )
+                {
+                    var wrapPanel = new WrapPanel();
+                    NameScope.SetNameScope( wrapPanel, new NameScope() );
+                }
+            }
+
             {
                 var wrapPanel1 = new WrapPanel();
                 NameScope.SetNameScope( wrapPanel1, new NameScope() );
