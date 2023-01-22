@@ -40,6 +40,8 @@ namespace SpecialCharacterAssistance2.Forms
             );
 
             this.TypeComboBox_SelectionChanged( typeComboBox, null );
+
+            textbox1.Select( 0, 0 );
         }
 
         /// <summary>
@@ -96,8 +98,6 @@ namespace SpecialCharacterAssistance2.Forms
             stackPanel1.Children.Add( wrapPanels[ selectedIndex ] );
 
             this.prevWrapPanel = wrapPanels[ selectedIndex ];
-
-            //stackPanel1.Children.Remove( wrapPanel1 );
         }
 
         /// <summary>
@@ -118,8 +118,10 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SpecialCharacterButton_Click( object sender, RoutedEventArgs e )
         {
-            // TODO: 要編集
-            MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
+            string text  = textbox1.Text;
+            int caretPos = textbox1.SelectionStart;
+            text = text.Insert( caretPos, (sender as Button).Content.ToString() );
+            textbox1.Text = text;
         }
 
         /// <summary>
