@@ -1,5 +1,5 @@
 {
-    "Genre": [{
+    "Genres": [{
             "Name": "半角スペース",
             "CanReplce": true,
             "CanUse": true,

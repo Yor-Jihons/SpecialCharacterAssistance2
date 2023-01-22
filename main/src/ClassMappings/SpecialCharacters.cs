@@ -1,6 +1,6 @@
 namespace SpecialCharacterAssistance2.ClassMappings
 {
-    public class specialcharacters
+    public class SpecialCharacters
     {
         public static string CreateJsonFilePath()
         {
@@ -10,14 +10,21 @@ namespace SpecialCharacterAssistance2.ClassMappings
             );
         }
 
-        public static specialcharacters Load( string filepath )
+        public static SpecialCharacters Load( string filepath )
         {
-            // 1. ファイルを読み込む
-            // 2. jsonからオブジェクトに変換する
-            // 3. (2)をreturnする
-        return null;
+            using(var file = new System.IO.StreamReader( filepath, System.Text.Encoding.GetEncoding("UTF-8") ))
+            {
+                var jsonStr = file.ReadToEnd();
+                file.Close();
+                var options = new System.Text.Json.JsonSerializerOptions{ WriteIndented = true };
+                return System.Text.Json.JsonSerializer.Deserialize(
+                    jsonStr,
+                    typeof(SpecialCharacterAssistance2.ClassMappings.SpecialCharacters),
+                    options
+                ) as SpecialCharacterAssistance2.ClassMappings.SpecialCharacters;
+            }
         }
 
-        public Genre[] Genres{ get; set; }
+        public System.Collections.Generic.List<Genre> Genres { get; set; }
     }
 }
