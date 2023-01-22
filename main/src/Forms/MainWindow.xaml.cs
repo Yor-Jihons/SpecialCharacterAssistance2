@@ -54,60 +54,32 @@ namespace SpecialCharacterAssistance2.Forms
             // TODO: specialcharactersの値を用いて生成
 
             var wrapPanels = new List<WrapPanel>();
-/*
+
             foreach( var genre in specialcharacters.Genres )
             {
                 if( !genre.CanUse ) continue;
 
-                for( int i = 0; i < genre.SpecialCharacters.Count; i++ )
+                var wrapPanel = new WrapPanel();
+                NameScope.SetNameScope( wrapPanel, new NameScope() );
+                wrapPanels.Add( wrapPanel );
+
+                foreach( var specialcharacter in genre.SpecialCharacters )
                 {
-                    var wrapPanel = new WrapPanel();
-                    NameScope.SetNameScope( wrapPanel, new NameScope() );
+                    if( !specialcharacter.CanUse ) continue;
+
+                    var button = new Button()
+                    {
+                        Name    = ("c" + specialcharacter.Id),
+                        Content = specialcharacter.Character,
+                        Style   = resource,
+                        Margin  = new Thickness( 5, 5, 5, 5 ),
+                        Width   = 80,
+                        Height  = 60
+                    };
+                    button.Click += new RoutedEventHandler( handler );
+
+                    wrapPanel.Children.Add( button );
                 }
-            }
-*/
-            {
-                var wrapPanel1 = new WrapPanel();
-                NameScope.SetNameScope( wrapPanel1, new NameScope() );
-                wrapPanels.Add( wrapPanel1 );
-
-                var button1 = new Button(){
-                    Name = "button1", Content = "д", Style  = resource,
-                    Margin = new Thickness( 5, 5, 5, 5 ),
-                    Width  = 80, Height = 60
-                };
-                button1.Click += new RoutedEventHandler( handler );
-                wrapPanel1.Children.Add( button1 );
-
-                var button2 = new Button(){
-                    Name = "button2", Content = "Я", Style  = resource,
-                    Margin = new Thickness( 5, 5, 5, 5 ),
-                    Width  = 80, Height = 60
-                };
-                button2.Click += new RoutedEventHandler( handler );
-                wrapPanel1.Children.Add( button2 );
-            }
-
-            {
-                var wrapPanel2 = new WrapPanel();
-                NameScope.SetNameScope( wrapPanel2, new NameScope() );
-                wrapPanels.Add( wrapPanel2 );
-
-                var button1 = new Button(){
-                    Name = "button1", Content = "<", Style  = resource,
-                    Margin = new Thickness( 5, 5, 5, 5 ),
-                    Width  = 80, Height = 60
-                };
-                button1.Click += new RoutedEventHandler( handler );
-                wrapPanel2.Children.Add( button1 );
-
-                var button2 = new Button(){
-                    Name = "button2", Content = ">", Style  = resource,
-                    Margin = new Thickness( 5, 5, 5, 5 ),
-                    Width  = 80, Height = 60
-                };
-                button2.Click += new RoutedEventHandler( handler );
-                wrapPanel2.Children.Add( button2 );
             }
 
         return wrapPanels;
