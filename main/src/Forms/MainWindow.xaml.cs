@@ -28,9 +28,7 @@ namespace SpecialCharacterAssistance2.Forms
 
             this.specialcharacters = ClassMappings.SpecialCharacters.Load( jsonfilePath );
 
-            string[] dummyTypes = { "ロシア語", "半角記号", "ギリシャアルファベット(大文字)" };
-
-            foreach( var type in dummyTypes ) this.typeComboBox.Items.Add( type );
+            foreach( var genre in specialcharacters.Genres ) this.typeComboBox.Items.Add( genre.Name );
             this.typeComboBox.SelectedIndex = 0;
 
             this.wrapPanels = CreateWrapPanels(
@@ -56,7 +54,7 @@ namespace SpecialCharacterAssistance2.Forms
             // TODO: specialcharactersの値を用いて生成
 
             var wrapPanels = new List<WrapPanel>();
-
+/*
             foreach( var genre in specialcharacters.Genres )
             {
                 if( !genre.CanUse ) continue;
@@ -67,7 +65,7 @@ namespace SpecialCharacterAssistance2.Forms
                     NameScope.SetNameScope( wrapPanel, new NameScope() );
                 }
             }
-
+*/
             {
                 var wrapPanel1 = new WrapPanel();
                 NameScope.SetNameScope( wrapPanel1, new NameScope() );
