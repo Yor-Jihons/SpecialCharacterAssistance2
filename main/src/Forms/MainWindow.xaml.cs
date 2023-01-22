@@ -51,8 +51,6 @@ namespace SpecialCharacterAssistance2.Forms
         /// <returns>The list of the class WrapPanel.</returns>
         private static List<WrapPanel> CreateWrapPanels( ClassMappings.SpecialCharacters specialcharacters, RoutedEventHandler handler, Style resource )
         {
-            // TODO: specialcharactersの値を用いて生成
-
             var wrapPanels = new List<WrapPanel>();
 
             foreach( var genre in specialcharacters.Genres )
@@ -98,7 +96,7 @@ namespace SpecialCharacterAssistance2.Forms
                 data = ClassMappings.WindowData.CreateAsNew( (int)this.Width, (int)this.Height );
             }
             ClassMappings.WindowData.Save( data, "data1.xml" );
-            // TODO:
+            // TODO: 要編集
             //MessageBox.Show( data.MainWindow.ToString() );
         }
 
@@ -109,7 +107,7 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-
+            // TODO: 要編集
         }
 
         /// <summary>
@@ -119,7 +117,7 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SaveFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-
+            // TODO: 要編集
         }
 
         /// <summary>
@@ -129,6 +127,7 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void TypeComboBox_SelectionChanged( object sender, SelectionChangedEventArgs e )
         {
+            // TODO: 要編集
             MessageBox.Show( "『" + (sender as ComboBox).SelectedIndex + "』が選択された" );
         }
 
@@ -139,6 +138,7 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
+            // TODO: 要編集
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
 
@@ -149,6 +149,7 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SpecialCharacterButton_Click( object sender, RoutedEventArgs e )
         {
+            // TODO: 要編集
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
 
