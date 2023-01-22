@@ -33,7 +33,11 @@ namespace SpecialCharacterAssistance2.Forms
             foreach( var type in dummyTypes ) this.typeComboBox.Items.Add( type );
             this.typeComboBox.SelectedIndex = 0;
 
-            this.wrapPanels = CreateWrapPanels( SpecialCharacterButton_Click, (Style)this.FindResource( "Font4Buttons" ) );
+            this.wrapPanels = CreateWrapPanels(
+                this.specialcharacters,
+                SpecialCharacterButton_Click,
+                (Style)this.FindResource( "Font4Buttons" )
+            );
 
             stackPanel1.Children.Add( wrapPanels[0] );
 
@@ -43,10 +47,11 @@ namespace SpecialCharacterAssistance2.Forms
         /// <summary>
         /// Create the list of the class WrapPanel, in order to be able to switch them.
         /// </summary>
+        /// <param name="specialcharacters">The object of the class SpecialCharacters, which contains the json data.</param>
         /// <param name="handler">The event buttons was clicked.</param>
         /// <param name="resource">The font resource for buttons.</param>
         /// <returns>The list of the class WrapPanel.</returns>
-        private static List<WrapPanel> CreateWrapPanels( RoutedEventHandler handler, Style resource )
+        private static List<WrapPanel> CreateWrapPanels( ClassMappings.SpecialCharacters specialcharacters, RoutedEventHandler handler, Style resource )
         {
             // TODO: specialcharactersの値を用いて生成
 
