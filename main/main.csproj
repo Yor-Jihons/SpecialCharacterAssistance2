@@ -12,6 +12,21 @@
     <Copyright>Mr.Crack</Copyright>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="res\specialcharacters\specialcharacters.json">
+      <Link>specialcharacters\specialcharacters.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\specialcharacters\README.md">
+      <Link>specialcharacters\README.md</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\specialcharacters\LICENSE">
+      <Link>specialcharacters\LICENSE</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
   <!-- Show message -->
   <Target Name="PrintCompile" BeforeTargets="Build">
     <Message Text="----- Compile $(AssemblyName) as WPF, $(Configuration) -----" Importance="high" />
