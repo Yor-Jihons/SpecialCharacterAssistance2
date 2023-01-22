@@ -40,8 +40,15 @@ namespace SpecialCharacterAssistance2.Forms
             //stackPanel1.Children.Remove( wrapPanel1 );
         }
 
+        /// <summary>
+        /// Create the list of the class WrapPanel, in order to be able to switch them.
+        /// </summary>
+        /// <param name="handler">The event buttons was clicked.</param>
+        /// <param name="resource">The font resource for buttons.</param>
+        /// <returns>The list of the class WrapPanel.</returns>
         private static List<WrapPanel> CreateWrapPanels( RoutedEventHandler handler, Style resource )
         {
+            // TODO: specialcharactersの値を用いて生成
 
             var wrapPanels = new List<WrapPanel>();
 
@@ -92,6 +99,11 @@ namespace SpecialCharacterAssistance2.Forms
         return wrapPanels;
         }
 
+        /// <summary>
+        /// The event when MainWindow closed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void MainWindow_Loaded( object sender, EventArgs args )
         {
             ClassMappings.WindowData data = ClassMappings.WindowData.Load( "data1.xml" );
@@ -104,33 +116,60 @@ namespace SpecialCharacterAssistance2.Forms
             //MessageBox.Show( data.MainWindow.ToString() );
         }
 
+        /// <summary>
+        /// The event when OpenFileMenuItem was clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
 
         }
 
+        /// <summary>
+        /// The event when SaveFileMenuItem was clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void SaveFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
 
         }
 
+        /// <summary>
+        /// The event when the selected index of typeComboBox was changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void TypeComboBox_SelectionChanged( object sender, SelectionChangedEventArgs e )
         {
             MessageBox.Show( "『" + (sender as ComboBox).SelectedIndex + "』が選択された" );
         }
 
+        /// <summary>
+        /// The event when HtmlConversionButton was clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
 
+        /// <summary>
+        /// The event when buttons (of special characters) was clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void SpecialCharacterButton_Click( object sender, RoutedEventArgs e )
         {
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
 
+        /// <value>The object of the class SpecialCharacters which contains the json data.</value>
         private ClassMappings.SpecialCharacters specialcharacters;
 
+        /// <value>The list of the class WrapPanel in order to switch.</value>
         private List<WrapPanel> wrapPanels;
     }
 }
