@@ -24,6 +24,13 @@ namespace SpecialCharacterAssistance2.Forms
         {
             InitializeComponent();
 
+            var jsonfilePath = System.IO.Path.Join(
+                System.IO.Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).ToString(),
+                "specialcharacters", "specialcharacters.json"
+            );
+
+            
+
             string[] dummyTypes = { "ロシア語", "半角記号", "ギリシャアルファベット(大文字)" };
 
             foreach( var type in dummyTypes ) this.typeComboBox.Items.Add( type );
