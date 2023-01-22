@@ -98,8 +98,6 @@ namespace SpecialCharacterAssistance2.Forms
             stackPanel1.Children.Add( wrapPanels[ selectedIndex ] );
 
             this.prevWrapPanel = wrapPanels[ selectedIndex ];
-
-            //stackPanel1.Children.Remove( wrapPanel1 );
         }
 
         /// <summary>
