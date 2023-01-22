@@ -24,12 +24,9 @@ namespace SpecialCharacterAssistance2.Forms
         {
             InitializeComponent();
 
-            var jsonfilePath = System.IO.Path.Join(
-                System.IO.Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).ToString(),
-                "specialcharacters", "specialcharacters.json"
-            );
+            var jsonfilePath = ClassMappings.specialcharacters.CreateJsonFilePath();
 
-            
+            this.specialcharacters = ClassMappings.specialcharacters.Load( jsonfilePath );
 
             string[] dummyTypes = { "ロシア語", "半角記号", "ギリシャアルファベット(大文字)" };
 
@@ -131,6 +128,8 @@ namespace SpecialCharacterAssistance2.Forms
         {
             MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
         }
+
+        private ClassMappings.specialcharacters specialcharacters;
 
         private List<WrapPanel> wrapPanels;
     }
