@@ -53,6 +53,9 @@ namespace SpecialCharacterAssistance2.Forms
         {
             // TODO: 要編集
             //MessageBox.Show( data.MainWindow.ToString() );
+
+            this.MinWidth  = this.Width;
+            this.MinHeight = this.Height;
         }
 
         /// <summary>
