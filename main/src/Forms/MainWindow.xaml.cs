@@ -38,10 +38,6 @@ namespace SpecialCharacterAssistance2.Forms
                 SpecialCharacterButton_Click,
                 (Style)this.FindResource( "Font4Buttons" )
             );
-
-            this.TypeComboBox_SelectionChanged( typeComboBox, null );
-
-            textbox1.Select( 0, 0 );
         }
 
         /// <summary>
@@ -51,11 +47,12 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void MainWindow_Loaded( object sender, EventArgs args )
         {
-            // TODO: 要編集
-            //MessageBox.Show( data.MainWindow.ToString() );
-
             this.MinWidth  = this.Width;
             this.MinHeight = this.Height;
+
+            this.TypeComboBox_SelectionChanged( typeComboBox, null );
+
+            textbox1.Select( 0, 0 );
         }
 
         /// <summary>
