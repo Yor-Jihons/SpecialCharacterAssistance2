@@ -107,8 +107,23 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            // TODO: 要編集
-            MessageBox.Show( "『" + (sender as Button).Content + "』が押された" );
+            string text  = textbox1.Text;
+            int caretPos = textbox1.SelectionStart;
+
+            foreach( var genre in this.specialcharacters.Genres )
+            {
+                if( !genre.CanReplce ) continue;
+
+                foreach( var specialCharacter in genre.SpecialCharacters )
+                {
+                    if( !specialCharacter.CanUse ) continue;
+
+                    text = text.Replace( specialCharacter.Character, specialCharacter.HtmlString );
+                }
+            }
+
+            textbox1.Text = text;
+            textbox1.Select( text.Length - 1, 1 );
         }
 
         /// <summary>
