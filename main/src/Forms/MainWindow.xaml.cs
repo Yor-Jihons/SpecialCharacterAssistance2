@@ -68,7 +68,25 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-            // TODO: 要編集
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+
+            dialog.FileName         = "Document";
+            dialog.DefaultExt       = ".txt";
+            dialog.Filter           = "テキストファイル (*.txt)|*.txt|テキストファイル (*.data)|*.data|全てのファイル (*.*)|*.*";
+            dialog.FilterIndex      = 1;
+            dialog.InitialDirectory = "";
+            dialog.AddExtension     = true;
+            dialog.CheckFileExists  = true;
+            dialog.CheckPathExists  = true;
+            dialog.Multiselect      = false;
+
+            if( dialog.ShowDialog() != true ) return;
+
+            using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
+            {
+                textbox1.Text = file.ReadToEnd();
+                file.Close();
+            }
         }
 
         /// <summary>
