@@ -20,6 +20,9 @@ namespace SpecialCharacterAssistance2.Forms
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -66,7 +69,7 @@ namespace SpecialCharacterAssistance2.Forms
 
             dialog.FileName         = "Document";
             dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|テキストファイル (*.data)|*.data|全てのファイル (*.*)|*.*";
+            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
             dialog.FilterIndex      = 1;
             dialog.InitialDirectory = "";
             dialog.AddExtension     = true;
@@ -94,9 +97,9 @@ namespace SpecialCharacterAssistance2.Forms
 
             var dialog = new Microsoft.Win32.SaveFileDialog();
 
-            dialog.FileName         = "Document";
+            dialog.FileName         = "special_character_assistance.txt";
             dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|テキストファイル (*.data)|*.data|全てのファイル (*.*)|*.*";
+            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
             dialog.FilterIndex      = 1;
             dialog.InitialDirectory = "";
             dialog.AddExtension     = true;
