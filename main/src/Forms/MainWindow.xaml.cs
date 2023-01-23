@@ -51,12 +51,6 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void MainWindow_Loaded( object sender, EventArgs args )
         {
-            ClassMappings.WindowData data = ClassMappings.WindowData.Load( "data1.xml" );
-            if( data == null )
-            {
-                data = ClassMappings.WindowData.CreateAsNew( (int)this.Width, (int)this.Height );
-            }
-            ClassMappings.WindowData.Save( data, "data1.xml" );
             // TODO: 要編集
             //MessageBox.Show( data.MainWindow.ToString() );
         }
