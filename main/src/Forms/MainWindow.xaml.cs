@@ -85,7 +85,7 @@ namespace SpecialCharacterAssistance2.Forms
 
             using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
             {
-                textbox1.Text = file.ReadToEnd();
+                this.mainViewModelEx.ContentText = file.ReadToEnd();
                 file.Close();
             }
         }
@@ -97,7 +97,7 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SaveFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-            string text = textbox1.Text;
+            string text = this.mainViewModelEx.ContentText;
 
             var dialog = new Microsoft.Win32.SaveFileDialog();
 
@@ -146,7 +146,6 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            string text  = textbox1.Text;
             int caretPos = textbox1.SelectionStart;
 
             foreach( var genre in this.specialcharacters.Genres )
@@ -157,12 +156,11 @@ namespace SpecialCharacterAssistance2.Forms
                 {
                     if( !specialCharacter.CanUse ) continue;
 
-                    text = text.Replace( specialCharacter.Character, specialCharacter.HtmlString );
+                    this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Replace( specialCharacter.Character, specialCharacter.HtmlString );
                 }
             }
 
-            textbox1.Text = text;
-            textbox1.Select( text.Length - 1, 1 );
+            textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
         /// <summary>
