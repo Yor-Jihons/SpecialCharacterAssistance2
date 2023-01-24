@@ -27,6 +27,10 @@ namespace SpecialCharacterAssistance2.Forms
         {
             InitializeComponent();
 
+            this.mainViewModelEx = new ViewModels.MainViewModelEx();
+
+            this.DataContext = this.mainViewModelEx;
+
             var jsonfilePath = ClassMappings.SpecialCharacters.CreateJsonFilePath();
 
             this.specialcharacters = ClassMappings.SpecialCharacters.Load( jsonfilePath );
@@ -168,10 +172,8 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SpecialCharacterButton_Click( object sender, RoutedEventArgs e )
         {
-            string text  = textbox1.Text;
             int caretPos = textbox1.SelectionStart;
-            text = text.Insert( caretPos, (sender as Button).Content.ToString() );
-            textbox1.Text = text;
+            this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Insert( caretPos, (sender as Button).Content.ToString() );
             textbox1.Select( caretPos + 1, 1 );
         }
 
@@ -212,6 +214,8 @@ namespace SpecialCharacterAssistance2.Forms
             }
         return wrapPanels;
         }
+
+        private ViewModels.MainViewModelEx mainViewModelEx;
 
         /// <value>The object of the class SpecialCharacters which contains the json data.</value>
         private ClassMappings.SpecialCharacters specialcharacters;

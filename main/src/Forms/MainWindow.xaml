@@ -32,7 +32,7 @@
 
                 <Label Grid.Row="0" Grid.Column="0" Content="特殊文字入力支援" Style="{StaticResource Font4TitleLabel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" />
                 <TextBox Name="textbox1" Grid.Row="1" Grid.Column="0" Style="{StaticResource Font4TextBox}" Margin="5,5,5,5" Height="200"
-                    AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" />
+                    AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" Text="{Binding ContentText}" />
 
                 <Grid Grid.Row="2" Grid.Column="0">
                     <Grid.RowDefinitions>
