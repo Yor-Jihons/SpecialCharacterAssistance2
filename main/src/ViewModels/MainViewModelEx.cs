@@ -14,7 +14,10 @@ namespace SpecialCharacterAssistance2.ViewModels
             this.ContentText = "";
         }
 
+        /// <value>The string for the textbox.</value>
         private string contentText;
+
+        /// <value>The string for the textbox. (for the data-binding.)</value>
         public string ContentText
         {
             get
@@ -29,7 +32,13 @@ namespace SpecialCharacterAssistance2.ViewModels
             }
         }
 
+        /// <value>The PropertyChanged.</value>
         public event PropertyChangedEventHandler PropertyChanged = null;
+
+        /// <summary>
+        /// Notify the property was changed (to ViewModel and View).
+        /// </summary>
+        /// <param name="propertyName">The property name, which was changed.</param>
         protected void NotifyPropertyChanged( string propertyName )
         {
             if( PropertyChanged != null )

@@ -213,6 +213,7 @@ namespace SpecialCharacterAssistance2.Forms
         return wrapPanels;
         }
 
+        /// <value>The View model.</value>
         private ViewModels.MainViewModelEx mainViewModelEx;
 
         /// <value>The object of the class SpecialCharacters which contains the json data.</value>
