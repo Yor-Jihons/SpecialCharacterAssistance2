@@ -20,9 +20,16 @@ namespace SpecialCharacterAssistance2.Forms
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+
+            this.mainViewModelEx = new ViewModels.MainViewModelEx();
+
+            this.DataContext = this.mainViewModelEx;
 
             var jsonfilePath = ClassMappings.SpecialCharacters.CreateJsonFilePath();
 
@@ -39,9 +46,15 @@ namespace SpecialCharacterAssistance2.Forms
                 (Style)this.FindResource( "Font4Buttons" )
             );
 
-            this.TypeComboBox_SelectionChanged( typeComboBox, null );
+            // イメージブラシの作成
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new System.Windows.Media.Imaging.BitmapImage(
+                new Uri( "res/Frames/wood1.png", UriKind.RelativeOrAbsolute )
+            );
+            //imageBrush.Opacity = 0;
 
-            textbox1.Select( 0, 0 );
+            // ブラシを背景に設定する
+            this.Background = imageBrush;
         }
 
         /// <summary>
@@ -51,14 +64,12 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void MainWindow_Loaded( object sender, EventArgs args )
         {
-            ClassMappings.WindowData data = ClassMappings.WindowData.Load( "data1.xml" );
-            if( data == null )
-            {
-                data = ClassMappings.WindowData.CreateAsNew( (int)this.Width, (int)this.Height );
-            }
-            ClassMappings.WindowData.Save( data, "data1.xml" );
-            // TODO: 要編集
-            //MessageBox.Show( data.MainWindow.ToString() );
+            this.MinWidth  = this.Width;
+            this.MinHeight = this.Height;
+
+            this.TypeComboBox_SelectionChanged( typeComboBox, null );
+
+            textbox1.Select( 0, 0 );
         }
 
         /// <summary>
@@ -72,7 +83,7 @@ namespace SpecialCharacterAssistance2.Forms
 
             dialog.FileName         = "Document";
             dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|テキストファイル (*.data)|*.data|全てのファイル (*.*)|*.*";
+            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
             dialog.FilterIndex      = 1;
             dialog.InitialDirectory = "";
             dialog.AddExtension     = true;
@@ -84,7 +95,7 @@ namespace SpecialCharacterAssistance2.Forms
 
             using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
             {
-                textbox1.Text = file.ReadToEnd();
+                this.mainViewModelEx.ContentText = file.ReadToEnd();
                 file.Close();
             }
         }
@@ -96,13 +107,13 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SaveFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-            string text = textbox1.Text;
+            string text = this.mainViewModelEx.ContentText;
 
             var dialog = new Microsoft.Win32.SaveFileDialog();
 
-            dialog.FileName         = "Document";
+            dialog.FileName         = "special_character_assistance.txt";
             dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|テキストファイル (*.data)|*.data|全てのファイル (*.*)|*.*";
+            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
             dialog.FilterIndex      = 1;
             dialog.InitialDirectory = "";
             dialog.AddExtension     = true;
@@ -145,7 +156,6 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            string text  = textbox1.Text;
             int caretPos = textbox1.SelectionStart;
 
             foreach( var genre in this.specialcharacters.Genres )
@@ -156,12 +166,11 @@ namespace SpecialCharacterAssistance2.Forms
                 {
                     if( !specialCharacter.CanUse ) continue;
 
-                    text = text.Replace( specialCharacter.Character, specialCharacter.HtmlString );
+                    this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Replace( specialCharacter.Character, specialCharacter.HtmlString );
                 }
             }
 
-            textbox1.Text = text;
-            textbox1.Select( text.Length - 1, 1 );
+            textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
         /// <summary>
@@ -171,10 +180,8 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SpecialCharacterButton_Click( object sender, RoutedEventArgs e )
         {
-            string text  = textbox1.Text;
             int caretPos = textbox1.SelectionStart;
-            text = text.Insert( caretPos, (sender as Button).Content.ToString() );
-            textbox1.Text = text;
+            this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Insert( caretPos, (sender as Button).Content.ToString() );
             textbox1.Select( caretPos + 1, 1 );
         }
 
@@ -215,6 +222,9 @@ namespace SpecialCharacterAssistance2.Forms
             }
         return wrapPanels;
         }
+
+        /// <value>The View model.</value>
+        private ViewModels.MainViewModelEx mainViewModelEx;
 
         /// <value>The object of the class SpecialCharacters which contains the json data.</value>
         private ClassMappings.SpecialCharacters specialcharacters;
