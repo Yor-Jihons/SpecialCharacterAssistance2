@@ -46,15 +46,26 @@ namespace SpecialCharacterAssistance2.Forms
                 (Style)this.FindResource( "Font4Buttons" )
             );
 
-            // イメージブラシの作成
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new System.Windows.Media.Imaging.BitmapImage(
-                new Uri( "res/Frames/wood2.png", UriKind.RelativeOrAbsolute )
-            );
-            //imageBrush.Opacity = 0;
+            string imgLogicalName = "background_wood2.png";
+            this.Background = LoadImageBrushFromResource( imgLogicalName );
+        }
 
-            // ブラシを背景に設定する
-            this.Background = imageBrush;
+        /// <summary>
+        /// Load the brush of image from resource.
+        /// </summary>
+        /// <param name="imgLogicalName">The logic name of the resource.</param>
+        /// <returns>The object of the class Brush.</returns>
+        private Brush LoadImageBrushFromResource( string imgLogicalName )
+        {
+            var bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream( imgLogicalName );
+            bitmapImage.StreamSource = stream;
+            bitmapImage.EndInit();
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = bitmapImage;
+        return imageBrush;
         }
 
         /// <summary>
