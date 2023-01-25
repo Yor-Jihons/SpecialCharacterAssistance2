@@ -46,7 +46,7 @@ namespace SpecialCharacterAssistance2.Forms
                 (Style)this.FindResource( "Font4Buttons" )
             );
 
-            string imgLogicalName = "background_wood2.png";
+            string imgLogicalName = "background_wood1.png";
             this.Background = LoadImageBrushFromResource( imgLogicalName );
         }
 

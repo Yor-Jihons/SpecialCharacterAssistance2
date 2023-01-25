@@ -13,6 +13,7 @@
             <Setter Property="FontStretch" Value="UltraExpanded" />
             <Setter Property="FontSize" Value="28" />
             <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Yellow"/>
         </Style>
         <Style x:Key="Font4TextBox" TargetType="TextBox">
             <Setter Property="FontFamily" Value="Century Gothic, メイリオ, Meiryo UI" />
@@ -27,6 +28,7 @@
             <Setter Property="FontStretch" Value="UltraExpanded" />
             <Setter Property="FontSize" Value="19" />
             <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Yellow"/>
         </Style>
         <Style x:Key="Font4TypeComboBox" TargetType="ComboBox">
             <Setter Property="FontFamily" Value="Century Gothic, メイリオ, Meiryo UI" />
