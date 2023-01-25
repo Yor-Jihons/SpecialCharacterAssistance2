@@ -48,7 +48,9 @@ namespace SpecialCharacterAssistance2.Forms
 
             // イメージブラシの作成
             ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new System.Windows.Media.Imaging.BitmapImage( new Uri( "res/Frames/wood1.png", UriKind.RelativeOrAbsolute ) );
+            imageBrush.ImageSource = new System.Windows.Media.Imaging.BitmapImage(
+                new Uri( "res/Frames/wood1.png", UriKind.RelativeOrAbsolute )
+            );
             //imageBrush.Opacity = 0;
 
             // ブラシを背景に設定する
