@@ -167,18 +167,11 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            foreach( var genre in this.specialcharacters.Genres )
-            {
-                if( !genre.CanReplce ) continue;
-
-                foreach( var specialCharacter in genre.SpecialCharacters )
-                {
-                    if( !specialCharacter.CanUse ) continue;
-
-                    this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Replace( specialCharacter.Character, specialCharacter.HtmlString );
-                }
-            }
-
+            var replacer = new Replacers.Replacer( this.mainViewModelEx.ContentText );
+            replacer.Begin();
+            replacer.Replace( this.specialcharacters );
+            replacer.End();
+            this.mainViewModelEx.ContentText = replacer.TargetText;
             textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
