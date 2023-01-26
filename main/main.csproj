@@ -27,6 +27,16 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="res/Frames/wood1.png" />
+    <EmbeddedResource Include="res/Frames/wood1.png" LogicalName="background_wood1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="res/Frames/wood2.png" />
+    <EmbeddedResource Include="res/Frames/wood2.png" LogicalName="background_wood2.png" />
+  </ItemGroup>
+
   <!-- Show message -->
   <Target Name="PrintCompile" BeforeTargets="Build">
     <Message Text="----- Compile $(AssemblyName) as WPF, $(Configuration) -----" Importance="high" />

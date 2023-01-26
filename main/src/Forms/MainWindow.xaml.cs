@@ -46,15 +46,26 @@ namespace SpecialCharacterAssistance2.Forms
                 (Style)this.FindResource( "Font4Buttons" )
             );
 
-            // イメージブラシの作成
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new System.Windows.Media.Imaging.BitmapImage(
-                new Uri( "res/Frames/wood1.png", UriKind.RelativeOrAbsolute )
-            );
-            //imageBrush.Opacity = 0;
+            string imgLogicalName = "background_wood1.png";
+            this.Background = LoadImageBrushFromResource( imgLogicalName );
+        }
 
-            // ブラシを背景に設定する
-            this.Background = imageBrush;
+        /// <summary>
+        /// Load the brush of image from resource.
+        /// </summary>
+        /// <param name="imgLogicalName">The logic name of the resource.</param>
+        /// <returns>The object of the class Brush.</returns>
+        private Brush LoadImageBrushFromResource( string imgLogicalName )
+        {
+            var bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream( imgLogicalName );
+            bitmapImage.StreamSource = stream;
+            bitmapImage.EndInit();
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = bitmapImage;
+        return imageBrush;
         }
 
         /// <summary>
@@ -156,20 +167,11 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            int caretPos = textbox1.SelectionStart;
-
-            foreach( var genre in this.specialcharacters.Genres )
-            {
-                if( !genre.CanReplce ) continue;
-
-                foreach( var specialCharacter in genre.SpecialCharacters )
-                {
-                    if( !specialCharacter.CanUse ) continue;
-
-                    this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Replace( specialCharacter.Character, specialCharacter.HtmlString );
-                }
-            }
-
+            var replacer = new Replacers.Replacer( this.mainViewModelEx.ContentText );
+            replacer.Begin();
+            replacer.Replace( this.specialcharacters );
+            replacer.End();
+            this.mainViewModelEx.ContentText = replacer.TargetText;
             textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
