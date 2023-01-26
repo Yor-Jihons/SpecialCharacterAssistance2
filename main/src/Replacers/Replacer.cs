@@ -34,6 +34,9 @@ namespace SpecialCharacterAssistance2.Replacers
                 {
                     if( !specialCharacter.CanUse ) continue;
 
+                    // If the HTML string is empty, skip.
+                    if( specialCharacter.HtmlString.Equals( string.Empty ) ) continue;
+
                     this.TargetText = this.TargetText.Replace( specialCharacter.Character, specialCharacter.HtmlString );
                 }
             }
