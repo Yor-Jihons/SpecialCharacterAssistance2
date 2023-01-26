@@ -167,8 +167,6 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            int caretPos = textbox1.SelectionStart;
-
             foreach( var genre in this.specialcharacters.Genres )
             {
                 if( !genre.CanReplce ) continue;
