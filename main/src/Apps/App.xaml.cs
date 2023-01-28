@@ -18,10 +18,6 @@ namespace SpecialCharacterAssistance2.Apps
         {
             base.OnStartup(e);
 
-            System.Windows.Controls.ToolTipService.ShowDurationProperty.OverrideMetadata(
-                typeof(DependencyObject),
-                new FrameworkPropertyMetadata(int.MaxValue));
-
             // UIスレッドの未処理例外で発生
             DispatcherUnhandledException += OnDispatcherUnhandledException;
             // UIスレッド以外の未処理例外で発生
