@@ -219,6 +219,7 @@ namespace SpecialCharacterAssistance2.Forms
                     };
                     button.Click += new RoutedEventHandler( handler );
 
+
                     wrapPanel.Children.Add( button );
                 }
             }
