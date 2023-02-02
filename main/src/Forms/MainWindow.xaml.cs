@@ -167,14 +167,15 @@ namespace SpecialCharacterAssistance2.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
+        private async void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            // TODO: async/awaitにする
-            var replacer = new Replacers.Replacer( this.mainViewModelEx.ContentText );
-            replacer.Begin();
-            replacer.Replace( this.specialcharacters );
-            replacer.End();
-            this.mainViewModelEx.ContentText = replacer.TargetText;
+            await Task.Run( () => {
+                var replacer = new Replacers.Replacer( this.mainViewModelEx.ContentText );
+                replacer.Begin();
+                replacer.Replace( this.specialcharacters );
+                replacer.End();
+                this.mainViewModelEx.ContentText = replacer.TargetText;
+            });
             textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
@@ -185,7 +186,6 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SpecialCharacterButton_Click( object sender, RoutedEventArgs e )
         {
-            // TODO: async/awaitにする
             int caretPos = textbox1.SelectionStart;
             this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Insert( caretPos, (sender as Button).Content.ToString() );
             textbox1.Select( caretPos + 1, 1 );
