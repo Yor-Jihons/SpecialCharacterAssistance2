@@ -20,7 +20,7 @@ namespace SpecialCharacterAssistance2.Apps
         /// <param name="e"></param>
         protected override void OnStartup( StartupEventArgs e )
         {
-            base.OnStartup(e);
+            base.OnStartup( e );
 
             // UIスレッドの未処理例外で発生
             DispatcherUnhandledException += OnDispatcherUnhandledException;

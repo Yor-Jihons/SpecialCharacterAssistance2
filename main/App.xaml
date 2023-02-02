@@ -4,7 +4,6 @@
             xmlns:local="clr-namespace:SpecialCharacterAssistance2.Apps"
             xmlns:sys="clr-namespace:System;assembly=mscorlib"
             StartupUri=".\src\Forms\MainWindow.xaml"
-            Startup="ApplicationStartup"
             Exit="Application_Exit">
     <Application.Resources>
         <Style x:Key="Font4TitleLabel" TargetType="Label">
