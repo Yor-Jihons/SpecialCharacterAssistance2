@@ -37,6 +37,10 @@
     <EmbeddedResource Include="res/Frames/wood2.png" LogicalName="background_wood2.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.1.1" />
+  </ItemGroup>
+
   <!-- Show message -->
   <Target Name="PrintCompile" BeforeTargets="Build">
     <Message Text="----- Compile $(AssemblyName) as WPF, $(Configuration) -----" Importance="high" />
