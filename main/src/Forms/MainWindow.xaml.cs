@@ -88,27 +88,31 @@ namespace SpecialCharacterAssistance2.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
+        private async void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-            var dialog = new Microsoft.Win32.OpenFileDialog();
+            bool ret = await Task.Run( () =>{
+                var dialog = new Microsoft.Win32.OpenFileDialog();
+                dialog.FileName         = "Document";
+                dialog.DefaultExt       = ".txt";
+                dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
+                dialog.FilterIndex      = 1;
+                dialog.InitialDirectory = "";
+                dialog.AddExtension     = true;
+                dialog.CheckFileExists  = true;
+                dialog.CheckPathExists  = true;
+                dialog.Multiselect      = false;
 
-            dialog.FileName         = "Document";
-            dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
-            dialog.FilterIndex      = 1;
-            dialog.InitialDirectory = "";
-            dialog.AddExtension     = true;
-            dialog.CheckFileExists  = true;
-            dialog.CheckPathExists  = true;
-            dialog.Multiselect      = false;
+                if( dialog.ShowDialog() != true ) return false;
 
-            if( dialog.ShowDialog() != true ) return;
+                using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
+                {
+                    this.mainViewModelEx.ContentText = file.ReadToEnd();
+                    file.Close();
+                }
+            return true;
+            });
 
-            using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
-            {
-                this.mainViewModelEx.ContentText = file.ReadToEnd();
-                file.Close();
-            }
+            if( ret ) textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
         /// <summary>
@@ -120,25 +124,29 @@ namespace SpecialCharacterAssistance2.Forms
         {
             string text = this.mainViewModelEx.ContentText;
 
-            var dialog = new Microsoft.Win32.SaveFileDialog();
+            Task.Run( () =>{
+                var dialog = new Microsoft.Win32.SaveFileDialog();
 
-            dialog.FileName         = "special_character_assistance.txt";
-            dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
-            dialog.FilterIndex      = 1;
-            dialog.InitialDirectory = "";
-            dialog.AddExtension     = true;
-            dialog.DereferenceLinks = true;
-            // ユーザーが既に存在するファイル名を指定した場合に SaveFileDialog で警告を表示するかどうか
-            dialog.OverwritePrompt  = true;
+                dialog.FileName         = "special_character_assistance.txt";
+                dialog.DefaultExt       = ".txt";
+                dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
+                dialog.FilterIndex      = 1;
+                dialog.InitialDirectory = "";
+                dialog.AddExtension     = true;
+                dialog.DereferenceLinks = true;
+                // ユーザーが既に存在するファイル名を指定した場合に SaveFileDialog で警告を表示するかどうか
+                dialog.OverwritePrompt  = true;
 
-            if( dialog.ShowDialog() != true ) return;
+                if( dialog.ShowDialog() != true ) return;
 
-            using( var file = new System.IO.StreamWriter( dialog.FileName, false, new System.Text.UTF8Encoding( false ) ) )
-            {
-                file.Write( text );
-                file.Close();
-            }
+                using( var file = new System.IO.StreamWriter( dialog.FileName, false, new System.Text.UTF8Encoding( false ) ) )
+                {
+                    file.Write( text );
+                    file.Close();
+                }
+
+                MessageBox.Show( dialog.FileName + "に書き込み完了!" );
+            });
         }
 
         /// <summary>
@@ -165,13 +173,15 @@ namespace SpecialCharacterAssistance2.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
+        private async void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
         {
-            var replacer = new Replacers.Replacer( this.mainViewModelEx.ContentText );
-            replacer.Begin();
-            replacer.Replace( this.specialcharacters );
-            replacer.End();
-            this.mainViewModelEx.ContentText = replacer.TargetText;
+            await Task.Run( () => {
+                var replacer = new Replacers.Replacer( this.mainViewModelEx.ContentText );
+                replacer.Begin();
+                replacer.Replace( this.specialcharacters );
+                replacer.End();
+                this.mainViewModelEx.ContentText = replacer.TargetText;
+            });
             textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
