@@ -122,28 +122,31 @@ namespace SpecialCharacterAssistance2.Forms
         /// <param name="args"></param>
         private void SaveFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-            // TODO: async/awaitにする
             string text = this.mainViewModelEx.ContentText;
 
-            var dialog = new Microsoft.Win32.SaveFileDialog();
+            Task.Run( () =>{
+                var dialog = new Microsoft.Win32.SaveFileDialog();
 
-            dialog.FileName         = "special_character_assistance.txt";
-            dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
-            dialog.FilterIndex      = 1;
-            dialog.InitialDirectory = "";
-            dialog.AddExtension     = true;
-            dialog.DereferenceLinks = true;
-            // ユーザーが既に存在するファイル名を指定した場合に SaveFileDialog で警告を表示するかどうか
-            dialog.OverwritePrompt  = true;
+                dialog.FileName         = "special_character_assistance.txt";
+                dialog.DefaultExt       = ".txt";
+                dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
+                dialog.FilterIndex      = 1;
+                dialog.InitialDirectory = "";
+                dialog.AddExtension     = true;
+                dialog.DereferenceLinks = true;
+                // ユーザーが既に存在するファイル名を指定した場合に SaveFileDialog で警告を表示するかどうか
+                dialog.OverwritePrompt  = true;
 
-            if( dialog.ShowDialog() != true ) return;
+                if( dialog.ShowDialog() != true ) return;
 
-            using( var file = new System.IO.StreamWriter( dialog.FileName, false, new System.Text.UTF8Encoding( false ) ) )
-            {
-                file.Write( text );
-                file.Close();
-            }
+                using( var file = new System.IO.StreamWriter( dialog.FileName, false, new System.Text.UTF8Encoding( false ) ) )
+                {
+                    file.Write( text );
+                    file.Close();
+                }
+
+                MessageBox.Show( dialog.FileName + "に書き込み完了!" );
+            });
         }
 
         /// <summary>
