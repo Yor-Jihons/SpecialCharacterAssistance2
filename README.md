@@ -18,6 +18,8 @@ This is the input assistance for special characters like "д" as a desktop appli
 
 This library is released under the MIT License. See also [LICENCE which included](./LICENSE) or [on GitHub](https://github.com/Yor-Jihons/SpecialCharacterAssistance2/blob/main/SpecialCharacterAssistance2/LICENSE).
 
+[NLog - NuGet Gallery](https://www.nuget.org/packages/NLog/) is under the BSD-3-Clause license.
+
 ## 5. Development Environment
 
 - dotnet on Windows

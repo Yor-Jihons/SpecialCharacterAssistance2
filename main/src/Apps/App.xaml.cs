@@ -15,6 +15,14 @@ namespace SpecialCharacterAssistance2.Apps
     public partial class App : Application
     {
         /// <summary>
+        /// Constructor.
+        /// </summary>
+        public App()
+        {
+            Loggers.Logger.SetLogInfo( "logfile", "error_log.log" );
+        }
+
+        /// <summary>
         /// Raises the Startup event.
         /// </summary>
         /// <param name="e"></param>
@@ -38,7 +46,7 @@ namespace SpecialCharacterAssistance2.Apps
         private void OnDispatcherUnhandledException( object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e )
         {
             var exception = e.Exception;
-            HandleException(exception);
+            HandleException( exception );
         }
 
         /// <summary>
@@ -49,7 +57,7 @@ namespace SpecialCharacterAssistance2.Apps
         private void OnUnobservedTaskException( object sender, UnobservedTaskExceptionEventArgs e )
         {
             var exception = e.Exception.InnerException as Exception;
-            HandleException(exception);
+            HandleException( exception );
         }
 
         /// <summary>
@@ -60,7 +68,7 @@ namespace SpecialCharacterAssistance2.Apps
         private void OnUnhandledException( object sender, UnhandledExceptionEventArgs e )
         {
             var exception = e.ExceptionObject as Exception;
-            HandleException(exception);
+            HandleException( exception );
         }
 
         /// <summary>
@@ -71,7 +79,8 @@ namespace SpecialCharacterAssistance2.Apps
         {
             // ログを送ったり、ユーザーにお知らせしたりする
             MessageBox.Show( $"エラーが発生しました\n{e?.ToString()}" );
-            Environment.Exit(1);
+            logger.Fatal( e.ToString() );
+            Environment.Exit( 1 );
         }
 
         /// <summary>
@@ -83,5 +92,7 @@ namespace SpecialCharacterAssistance2.Apps
         {
             
         }
+
+        public static Loggers.Logger logger = new Loggers.Logger();
     }
 }
