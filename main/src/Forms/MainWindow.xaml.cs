@@ -88,28 +88,31 @@ namespace SpecialCharacterAssistance2.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
+        private async void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
         {
-            // TODO: async/awaitにする
-            var dialog = new Microsoft.Win32.OpenFileDialog();
+            bool ret = await Task.Run( () =>{
+                var dialog = new Microsoft.Win32.OpenFileDialog();
+                dialog.FileName         = "Document";
+                dialog.DefaultExt       = ".txt";
+                dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
+                dialog.FilterIndex      = 1;
+                dialog.InitialDirectory = "";
+                dialog.AddExtension     = true;
+                dialog.CheckFileExists  = true;
+                dialog.CheckPathExists  = true;
+                dialog.Multiselect      = false;
 
-            dialog.FileName         = "Document";
-            dialog.DefaultExt       = ".txt";
-            dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
-            dialog.FilterIndex      = 1;
-            dialog.InitialDirectory = "";
-            dialog.AddExtension     = true;
-            dialog.CheckFileExists  = true;
-            dialog.CheckPathExists  = true;
-            dialog.Multiselect      = false;
+                if( dialog.ShowDialog() != true ) return false;
 
-            if( dialog.ShowDialog() != true ) return;
+                using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
+                {
+                    this.mainViewModelEx.ContentText = file.ReadToEnd();
+                    file.Close();
+                }
+            return true;
+            });
 
-            using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
-            {
-                this.mainViewModelEx.ContentText = file.ReadToEnd();
-                file.Close();
-            }
+            if( ret ) textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
         }
 
         /// <summary>
