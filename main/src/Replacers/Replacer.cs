@@ -19,7 +19,6 @@ namespace SpecialCharacterAssistance2.Replacers
         /// </summary>
         public void Begin()
         {
-            //this.TargetText = this.TargetText.Replace( "ab", "<>" );
             var matchs = System.Text.RegularExpressions.Regex.Matches( this.TargetText, PATTERN );
             foreach (System.Text.RegularExpressions.Match match in matchs)
             {

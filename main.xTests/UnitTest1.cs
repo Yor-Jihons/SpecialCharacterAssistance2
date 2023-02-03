@@ -99,22 +99,64 @@ public class UnitTest1
     [Fact]
     public void ReplacerTest1()
     {
-        // TODO: Test for Replacers.Replacer
+        string target = "<html><body><p>This is test.</p></body></html>";
 
-        string target1 = "<html><body><p>This is test.</p></body></html>";
-
-        string expected = "&lt;html&gt;&lt;body&gt;&lt;p&gt;This is test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;";
+        string expected = "&lt;html&gt;&lt;body&gt;&lt;p&gt;This&nbsp;is&nbsp;test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;";
 
         string filepath = @"..\..\..\specialcharacters.json";
         var specialCharacters = SpecialCharacterAssistance2.ClassMappings.SpecialCharacters.Load( filepath );
 
-        var replacer = new SpecialCharacterAssistance2.Replacers.Replacer( target1 );
-        Assert.Equal( target1, replacer.TargetText );
+        var replacer = new SpecialCharacterAssistance2.Replacers.Replacer( target );
+        Assert.Equal( target, replacer.TargetText );
         replacer.Begin();
-        Assert.Equal( target1, replacer.TargetText );
+        Assert.Equal( target, replacer.TargetText );
         replacer.Replace( specialCharacters );
         Assert.Equal( expected, replacer.TargetText );
         replacer.End();
         Assert.Equal( expected, replacer.TargetText );
+    }
+
+    [Fact]
+    public void ReplacerTest2()
+    {
+        string target = "<html><body><p>This is test &amp; run.</p></body></html>";
+        string exepcted1 = "<html><body><p>This is test AMPERSAND_UNREPLACEDamp; run.</p></body></html>";
+        string expected2 = "&lt;html&gt;&lt;body&gt;&lt;p&gt;This&nbsp;is&nbsp;test&nbsp;AMPERSAND_UNREPLACEDamp;&nbsp;run.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;";
+        string expected3 = "&lt;html&gt;&lt;body&gt;&lt;p&gt;This&nbsp;is&nbsp;test&nbsp;&amp;&nbsp;run.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;";
+
+        string filepath = @"..\..\..\specialcharacters.json";
+        var specialCharacters = SpecialCharacterAssistance2.ClassMappings.SpecialCharacters.Load( filepath );
+
+        var replacer = new SpecialCharacterAssistance2.Replacers.Replacer( target );
+        Assert.Equal( target, replacer.TargetText );
+        replacer.Begin();
+        Assert.Equal( exepcted1, replacer.TargetText );
+        replacer.Replace( specialCharacters );
+        Assert.Equal( expected2, replacer.TargetText );
+        replacer.End();
+        Assert.Equal( expected3, replacer.TargetText );
+    }
+
+
+    [Fact]
+    public void ReplacerTest3()
+    {
+        string target = "&lt;html><body>&lt;p>This is test &amp; run.</p&gt;</body&gt;</html>";
+
+        string expected1 = "AMPERSAND_UNREPLACEDlt;html><body>AMPERSAND_UNREPLACEDlt;p>This is test AMPERSAND_UNREPLACEDamp; run.</pAMPERSAND_UNREPLACEDgt;</bodyAMPERSAND_UNREPLACEDgt;</html>";
+        string expected2 = "AMPERSAND_UNREPLACEDlt;html&gt;&lt;body&gt;AMPERSAND_UNREPLACEDlt;p&gt;This&nbsp;is&nbsp;test&nbsp;AMPERSAND_UNREPLACEDamp;&nbsp;run.&lt;/pAMPERSAND_UNREPLACEDgt;&lt;/bodyAMPERSAND_UNREPLACEDgt;&lt;/html&gt;";
+        string expected3 = "&lt;html&gt;&lt;body&gt;&lt;p&gt;This&nbsp;is&nbsp;test&nbsp;&amp;&nbsp;run.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;";
+
+        string filepath = @"..\..\..\specialcharacters.json";
+        var specialCharacters = SpecialCharacterAssistance2.ClassMappings.SpecialCharacters.Load( filepath );
+
+        var replacer = new SpecialCharacterAssistance2.Replacers.Replacer( target );
+        Assert.Equal( target, replacer.TargetText );
+        replacer.Begin();
+        Assert.Equal( expected1, replacer.TargetText );
+        replacer.Replace( specialCharacters );
+        Assert.Equal( expected2, replacer.TargetText );
+        replacer.End();
+        Assert.Equal( expected3, replacer.TargetText );
     }
 }

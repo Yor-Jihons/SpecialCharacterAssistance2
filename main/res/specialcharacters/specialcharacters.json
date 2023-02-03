@@ -6,11 +6,10 @@
             "SpecialCharacters": [
                 { "Id": 1, "CanUse": true, "Character": "<", "HtmlString": "&lt;", "Description": "小なり" },
                 { "Id": 2, "CanUse": true, "Character": ">", "HtmlString": "&gt;", "Description": "大なり" },
-                { "Id": 3, "CanUse": true, "Character": "&", "HtmlString": "&amp;", "Description": "アンパサンド" },
-                { "Id": 4, "CanUse": true, "Character": " ", "HtmlString": "&nbsp;", "Description": "半角スペース" },
-                { "Id": 5, "CanUse": true, "Character": "\"", "HtmlString": "&quot;", "Description": "ダブルクォーテーション" },
-                { "Id": 7, "CanUse": true, "Character": "'", "HtmlString": "&gt;", "Description": "シングルクォーテーション" },
-                { "Id": 8, "CanUse": true, "Character": "—", "HtmlString": "&&mdash;", "Description": "em dash" }
+                { "Id": 3, "CanUse": true, "Character": " ", "HtmlString": "&nbsp;", "Description": "半角スペース" },
+                { "Id": 4, "CanUse": true, "Character": "\"", "HtmlString": "&quot;", "Description": "ダブルクォーテーション" },
+                { "Id": 5, "CanUse": true, "Character": "'", "HtmlString": "&gt;", "Description": "シングルクォーテーション" },
+                { "Id": 6, "CanUse": true, "Character": "—", "HtmlString": "&&mdash;", "Description": "em dash" }
             ]
         },
         {
