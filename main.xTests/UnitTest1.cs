@@ -97,8 +97,24 @@ public class UnitTest1
     }
 
     [Fact]
-    public void ReplacerTest()
+    public void ReplacerTest1()
     {
         // TODO: Test for Replacers.Replacer
+
+        string target1 = "<html><body><p>This is test.</p></body></html>";
+
+        string expected = "&lt;html&gt;&lt;body&gt;&lt;p&gt;This is test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;";
+
+        string filepath = @"..\..\..\specialcharacters.json";
+        var specialCharacters = SpecialCharacterAssistance2.ClassMappings.SpecialCharacters.Load( filepath );
+
+        var replacer = new SpecialCharacterAssistance2.Replacers.Replacer( target1 );
+        Assert.Equal( target1, replacer.TargetText );
+        replacer.Begin();
+        Assert.Equal( target1, replacer.TargetText );
+        replacer.Replace( specialCharacters );
+        Assert.Equal( expected, replacer.TargetText );
+        replacer.End();
+        Assert.Equal( expected, replacer.TargetText );
     }
 }

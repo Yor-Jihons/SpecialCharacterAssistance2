@@ -3,7 +3,7 @@ namespace SpecialCharacterAssistance2.Replacers
     /// <summary>
     /// The class in ordert to replace the string on the event HtmlConversionButton_Click.
     /// </summary>
-    class Replacer
+    public class Replacer
     {
         /// <summary>
         /// Constructor.
