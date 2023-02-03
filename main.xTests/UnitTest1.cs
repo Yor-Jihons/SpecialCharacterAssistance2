@@ -15,11 +15,11 @@ public class UnitTest1
             Description = "小なり"
         };
 
-        Assert.Equal( specialCharacter.Id, 1 );
+        Assert.Equal( 1, specialCharacter.Id );
         Assert.True( specialCharacter.CanUse );
-        Assert.Equal( specialCharacter.Character, "<" );
-        Assert.Equal( specialCharacter.HtmlString, "&lt;" );
-        Assert.Equal( specialCharacter.Description, "小なり" );
+        Assert.Equal( "<", specialCharacter.Character );
+        Assert.Equal( "&lt;", specialCharacter.HtmlString );
+        Assert.Equal( "小なり", specialCharacter.Description );
     }
 
     [Fact]
@@ -40,11 +40,11 @@ public class UnitTest1
             },
         };
 
-        Assert.Equal( genre.Name, "半角" );
+        Assert.Equal( "半角", genre.Name );
         Assert.True( genre.CanReplce );
         Assert.False( genre.CanUse );
-        Assert.Equal( genre.SpecialCharacters.Count, 1 );
-        Assert.Equal( genre.SpecialCharacters[0].Character, "<" );
+        Assert.Equal( 1, genre.SpecialCharacters.Count );
+        Assert.Equal( "<", genre.SpecialCharacters[0].Character );
     }
 
     [Fact]
@@ -83,8 +83,17 @@ public class UnitTest1
             }
         };
 
-        Assert.Equal( specialCharacters.Genres.Count, 2 );
-        Assert.Equal( specialCharacters.Genres[1].Name, "ロシア語" );
+        Assert.Equal( 2, specialCharacters.Genres.Count );
+        Assert.Equal( "ロシア語", specialCharacters.Genres[1].Name );
+    }
+
+    [Fact]
+    public void SpecialCharactersWithFileTest()
+    {
+        string filepath = @"..\..\..\specialcharacters.json";
+        var specialCharacters = SpecialCharacterAssistance2.ClassMappings.SpecialCharacters.Load( filepath );
+        Assert.Equal( 11, specialCharacters.Genres.Count );
+        Assert.Equal( "ロシア語(大文字)", specialCharacters.Genres[1].Name );
     }
 
     [Fact]
