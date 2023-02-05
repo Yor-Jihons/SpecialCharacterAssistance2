@@ -23,7 +23,7 @@
                @ C#.NET (.NET6)
 
   ライセンス :
-               本体: MITライセンス
-               背景画像: [CC0](https://creativecommons.org/share-your-work/public-domain/cc0) from [GAHAG | 著作権フリー写真・イラスト素材集](https://gahag.net/)
-               ログ処理: BSD-3-Clause from [NLog - NuGet Gallery](https://www.nuget.org/packages/NLog/)
-
+               @ 本体: MITライセンス
+               @ 背景画像: [CC0](https://creativecommons.org/share-your-work/public-domain/cc0) from [GAHAG | 著作権フリー写真・イラスト素材集](https://gahag.net/)
+               @ ログ処理: BSD-3-Clause from [NLog - NuGet Gallery](https://www.nuget.org/packages/NLog/)
+               @ ICON: CC Atribution from [icon-icons.com](https://icon-icons.com/ja/%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3/%E3%82%A2%E3%83%97%E3%83%AA/129133)
