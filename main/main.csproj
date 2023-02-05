@@ -28,6 +28,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Condition="'$(Configuration)' != 'Debug'" Include="res\Readmes\README.TXT">
+      <Link>README.TXT</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="res/Frames/wood1.png" />
     <EmbeddedResource Include="res/Frames/wood1.png" LogicalName="background_wood1.png" />
   </ItemGroup>
