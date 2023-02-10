@@ -5,11 +5,29 @@ This is the input assistance for special characters like "д" as a desktop appli
 ## 1. Requirements
 
 - dotnet 6.0.202
-- Windows OS
+- Windows OS (later 7)
 - [NLog - NuGet Gallery](https://www.nuget.org/packages/NLog/)
 
 ## 2. Install
 
+Step 1. Run the bat-file init.bat.
+
+```
+$ init
+```
+Step 2. Run the bat-file commpile.bat with a command-line argument.
+You can pass the arguments { "debug" | "release" | "publish" }.
+You can also run dotnet as usual.
+
+```
+$ compile publish
+```
+
+or like
+
+```
+$ dotnet publish -o .\bin\Publish -c Release --self-contained true -r win-x64 -nologo
+```
 
 ## 3. Usage
 
