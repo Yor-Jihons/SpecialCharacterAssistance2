@@ -15,6 +15,10 @@
 インストール :
                このzipファイルを解凍すれば完了
 
+      使い方 :
+              [オンラインヘルプ](https://yor-jihons.github.io/helppages/ja/specialcharacterassistance2.html)を参照してください。
+              URL: https://yor-jihons.github.io/helppages/ja/specialcharacterassistance2.html
+
     動作環境 :
                @ Windows 7以降
 
