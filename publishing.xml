@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<zipfilecompression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <zipfilename>.\main\bin\SpecialCharacterAssistance2_${VERSION}.zip</zipfilename>
+    <version>1.0.0</version>
+
+    <item>
+        <targetfilepath>.\main\bin\Publish\*.dll</targetfilepath>
+        <dirpathinzip />
+    </item>
+
+    <item>
+        <targetfilepath>.\main\bin\Publish\*.exe</targetfilepath>
+        <dirpathinzip />
+    </item>
+
+    <item>
+        <targetfilepath>.\main\bin\Publish\*.json</targetfilepath>
+        <dirpathinzip />
+    </item>
+
+    <item>
+        <targetfilepath>.\main\bin\Publish\LICENSE</targetfilepath>
+        <dirpathinzip />
+    </item>
+
+    <item>
+        <targetfilepath>.\main\bin\Publish\README.TXT</targetfilepath>
+        <dirpathinzip />
+    </item>
+
+    <item>
+        <targetfilepath>.\main\bin\Publish\specialcharacters</targetfilepath>
+        <dirpathinzip>specialcharacters</dirpathinzip>
+    </item>
+
+</zipfilecompression>
