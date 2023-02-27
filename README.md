@@ -31,7 +31,7 @@ $ dotnet publish -o .\bin\Publish -c Release --self-contained true -r win-x64 -n
 
 ## 3. Usage
 
-
+See [the online help](https://yor-jroom.com/help/ja/specialcharacterassistance2.html).
 
 ## 4. Licenses
 
