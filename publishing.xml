@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <zipfilecompression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <zipfilename>.\main\bin\SpecialCharacterAssistance2_${VERSION}.zip</zipfilename>
-    <version>1.0.0</version>
+    <zipfilename>.\main\bin\SpecialCharacterAssistance2.zip</zipfilename>
 
     <item>
         <targetfilepath>.\main\bin\Publish\*.dll</targetfilepath>

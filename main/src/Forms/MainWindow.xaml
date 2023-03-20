@@ -16,6 +16,7 @@
                 <MenuItem Header="開く(_O)" Click="OpenFileMenuItem_Click" />
                 <MenuItem Header="名前を付けて保存(_S)" Click="SaveFileMenuItem_Click" />
             </MenuItem>
+            <MenuItem Name="helpMenuItem" Header="ヘルプ(_H)" Click="HelpMenuItem_Click" />
         </Menu>
 
         <ScrollViewer Grid.Row="1" Grid.Column="0">
