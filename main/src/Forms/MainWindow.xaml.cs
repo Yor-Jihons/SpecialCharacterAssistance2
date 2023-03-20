@@ -150,6 +150,18 @@ namespace SpecialCharacterAssistance2.Forms
         }
 
         /// <summary>
+        /// The event when the item of the menu. (To show the help page.)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HelpMenuItem_Click( object sender, System.Windows.RoutedEventArgs e )
+        {
+            var startInfo = new System.Diagnostics.ProcessStartInfo( "https://yor-jroom.com/help/ja/specialcharacterassistance2.html" );
+            startInfo.UseShellExecute = true;
+            System.Diagnostics.Process.Start(startInfo);
+        }
+
+        /// <summary>
         /// The event when the selected index of typeComboBox was changed.
         /// </summary>
         /// <param name="sender"></param>

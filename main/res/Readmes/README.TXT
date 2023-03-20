@@ -2,7 +2,7 @@
 * SpecialCharacterAssistance2
 -+-+-+-+-+-+-+-+-+-+-+-+--+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
-   バージョン: SpecialCharacterAssistance2 1.0.0
+   バージョン: SpecialCharacterAssistance2 1.0.1
       著作者 : Yor-Jihons
 
          用途:
