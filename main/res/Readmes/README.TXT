@@ -2,7 +2,7 @@ SpecialCharacterAssistance2
 ----------------------------
 
 バージョン:
-  SpecialCharacterAssistance2 1.0.1
+  SpecialCharacterAssistance2 1.0.2
 
 著作者:
   Yor-Jihons
