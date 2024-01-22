@@ -2,7 +2,7 @@ SpecialCharacterAssistance2
 ----------------------------
 
 バージョン:
-  SpecialCharacterAssistance2 1.0.2
+  SpecialCharacterAssistance2 1.0.3
 
 著作者:
   Yor-Jihons
@@ -26,7 +26,6 @@ SpecialCharacterAssistance2
   * ログ: The NLog are downloaded from [NLog - NuGet](https://www.nuget.org/packages/NLog),
   and under the BSD-3-Clause license.
   * 背景画像: [CC0](https://creativecommons.org/share-your-work/public-domain/cc0) from [GAHAG | 著作権フリー写真・イラスト素材集](https://gahag.net/)
-  * ICON: CC Atribution from [icon-icons.com](https://icon-icons.com/ja/%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3/%E3%82%A2%E3%83%97%E3%83%AA/129133)
 
 オンラインヘルプ:
     [Online Help](https://yorroom2.cloudfree.jp/help/ja/specialcharacterassistance2.html)
