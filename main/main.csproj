@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <AssemblyName>SpecialCharacterAssistance2</AssemblyName>
     <ApplicationIcon>.\res\Icons\appicon2.ico</ApplicationIcon>
     <UseWPF>true</UseWPF>
     <DebugType Condition="'$(Configuration)' != 'Debug'">none</DebugType>
-    <Version>1.0.3</Version>
+    <Version>1.1.0</Version>
     <Copyright>Yor-Jihons</Copyright>
   </PropertyGroup>
 
