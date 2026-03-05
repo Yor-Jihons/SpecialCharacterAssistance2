@@ -1,56 +1,36 @@
 # SpecialCharacterAssistance2
 
-This is the input assistance for special characters like "д" as a desktop application (for Windows OS).
+## はじめに
 
-## 1. Requirements
+このアプリは特殊文字を入力しやすくするためのものです。
 
-- dotnet 6.0.202
-- Windows OS (later 7)
-- [NLog - NuGet Gallery](https://www.nuget.org/packages/NLog/)
+## コンセプト
 
-## 2. Install
+スペイン語の`ñ`(チルダ付きn)といった特殊文字の入力が大変です。
+なので、このアプリで通常の入力をしつつ、ボタンでも入力できるようにしました。
 
-Step 1. Run the bat-file init.bat.
+## 概要
 
-```
-$ init
-```
-Step 2. Run the bat-file commpile.bat with a command-line argument.
-You can pass the arguments { "debug" | "release" | "publish" }.
-You can also run dotnet as usual.
+通常の文字はテキストボックスに入力し、特殊文字はボタンを選択して追加していく。
 
-```
-$ compile publish
-```
+## デモ動画
 
-or like
+// TODO: ここに動画を追加
 
-```
-$ dotnet publish -o .\bin\Publish -c Release --self-contained true -r win-x64 -nologo
-```
+## 環境
 
-## 3. Usage
+* Windows 11以降
+* .NET8
 
-See [the online help](https://yor-jroom.com/help/ja/specialcharacterassistance2.html).
+## 利用方法
 
-## 4. Licenses
+### Step1. SpecialCharacterAssistance2.exeをクリック
 
-This library is released under the MIT License. See also [LICENCE which included](./LICENSE) or [on GitHub](https://github.com/Yor-Jihons/SpecialCharacterAssistance2/blob/main/SpecialCharacterAssistance2/LICENSE).
+### Step2. テキストボックスに通常の文字を入力する
 
-[NLog - NuGet Gallery](https://www.nuget.org/packages/NLog/) is under the BSD-3-Clause license.
+テキストボックス(入力できるテキスト用の範囲)に通常文字を入力します。
 
-The image files in the directory "main/res/Frames" are downloaded from [GAHAG | 著作権フリー写真・イラスト素材集](https://gahag.net/), and under the [CC0](https://creativecommons.org/share-your-work/public-domain/cc0) License.
+### Step3. 「種類(T)」で特殊文字の種類を選択する
 
-## 5. Development Environment
+### Step4. 必要な特殊文字のボタンを押す
 
-- dotnet on Windows
-- Language: C#
-- Framework: WPF
-
-## 6. Changes
-
-
-## 7. Contact
-
-Author: Yor-Jihons  
-GitHub: [SpecialCharacterAssistance2](https://github.com/Yor-Jihons/SpecialCharacterAssistance2)  
