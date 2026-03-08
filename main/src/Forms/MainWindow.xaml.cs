@@ -206,7 +206,7 @@ namespace SpecialCharacterAssistance2.Forms
         {
             int caretPos = textbox1.SelectionStart;
             this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Insert( caretPos, (sender as Button).Content.ToString() );
-            textbox1.Select( caretPos + 1, 1 );
+            textbox1.Select( caretPos + 1, 0 );
         }
 
         /// <summary>
