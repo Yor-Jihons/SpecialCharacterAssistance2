@@ -7,7 +7,7 @@
     <ApplicationIcon>.\res\Icons\appicon2.ico</ApplicationIcon>
     <UseWPF>true</UseWPF>
     <DebugType Condition="'$(Configuration)' != 'Debug'">none</DebugType>
-    <Version>1.1.0</Version>
+    <Version>2.0.0</Version>
     <Copyright>Yor-Jihons</Copyright>
   </PropertyGroup>
 
