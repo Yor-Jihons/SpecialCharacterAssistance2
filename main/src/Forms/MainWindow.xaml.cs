@@ -28,12 +28,13 @@ namespace SpecialCharacterAssistance2.Forms
             InitializeComponent();
 
             this.mainViewModelEx = new ViewModels.MainViewModelEx();
-
             this.DataContext = this.mainViewModelEx;
 
             var jsonfilePath = ClassMappings.SpecialCharacters.CreateJsonFilePath();
-
             this.specialcharacters = ClassMappings.SpecialCharacters.Load( jsonfilePath );
+            
+            // ViewModelにデータを渡す
+            this.mainViewModelEx.SpecialCharactersData = this.specialcharacters;
 
             foreach( var genre in specialcharacters.Genres ){
                 this.typeComboBox.Items.Add( genre.Name );
@@ -84,84 +85,6 @@ namespace SpecialCharacterAssistance2.Forms
         }
 
         /// <summary>
-        /// The event when OpenFileMenuItem was clicked.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private async void OpenFileMenuItem_Click( object sender, RoutedEventArgs e )
-        {
-            bool ret = await Task.Run( () =>{
-                var dialog = new Microsoft.Win32.OpenFileDialog();
-                dialog.FileName         = "Document";
-                dialog.DefaultExt       = ".txt";
-                dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
-                dialog.FilterIndex      = 1;
-                dialog.InitialDirectory = "";
-                dialog.AddExtension     = true;
-                dialog.CheckFileExists  = true;
-                dialog.CheckPathExists  = true;
-                dialog.Multiselect      = false;
-
-                if( dialog.ShowDialog() != true ) return false;
-
-                using( var file = new System.IO.StreamReader( dialog.FileName, new System.Text.UTF8Encoding( false ) ) )
-                {
-                    this.mainViewModelEx.ContentText = file.ReadToEnd();
-                    file.Close();
-                }
-            return true;
-            });
-
-            if( ret ) textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
-        }
-
-        /// <summary>
-        /// The event when SaveFileMenuItem was clicked.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void SaveFileMenuItem_Click( object sender, RoutedEventArgs e )
-        {
-            string text = this.mainViewModelEx.ContentText;
-
-            Task.Run( () =>{
-                var dialog = new Microsoft.Win32.SaveFileDialog();
-
-                dialog.FileName         = "special_character_assistance.txt";
-                dialog.DefaultExt       = ".txt";
-                dialog.Filter           = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
-                dialog.FilterIndex      = 1;
-                dialog.InitialDirectory = "";
-                dialog.AddExtension     = true;
-                dialog.DereferenceLinks = true;
-                // ユーザーが既に存在するファイル名を指定した場合に SaveFileDialog で警告を表示するかどうか
-                dialog.OverwritePrompt  = true;
-
-                if( dialog.ShowDialog() != true ) return;
-
-                using( var file = new System.IO.StreamWriter( dialog.FileName, false, new System.Text.UTF8Encoding( false ) ) )
-                {
-                    file.Write( text );
-                    file.Close();
-                }
-
-                MessageBox.Show( dialog.FileName + "に書き込み完了!" );
-            });
-        }
-
-        /// <summary>
-        /// The event when the item of the menu. (To show the help page.)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void HelpMenuItem_Click( object sender, System.Windows.RoutedEventArgs e )
-        {
-            var startInfo = new System.Diagnostics.ProcessStartInfo( "https://yorroom2.cloudfree.jp/help/ja/specialcharacterassistance2.html" );
-            startInfo.UseShellExecute = true;
-            System.Diagnostics.Process.Start(startInfo);
-        }
-
-        /// <summary>
         /// The event when the selected index of typeComboBox was changed.
         /// </summary>
         /// <param name="sender"></param>
@@ -181,23 +104,6 @@ namespace SpecialCharacterAssistance2.Forms
         }
 
         /// <summary>
-        /// The event when HtmlConversionButton was clicked.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private async void HtmlConversionButton_Click( object sender, RoutedEventArgs e )
-        {
-            await Task.Run( () => {
-                var replacer = new Replacers.Replacer( this.mainViewModelEx.ContentText );
-                replacer.Begin();
-                replacer.Replace( this.specialcharacters );
-                replacer.End();
-                this.mainViewModelEx.ContentText = replacer.TargetText;
-            });
-            textbox1.Select( this.mainViewModelEx.ContentText.Length - 1, 1 );
-        }
-
-        /// <summary>
         /// The event when buttons (of special characters) was clicked.
         /// </summary>
         /// <param name="sender"></param>
@@ -206,7 +112,7 @@ namespace SpecialCharacterAssistance2.Forms
         {
             int caretPos = textbox1.SelectionStart;
             this.mainViewModelEx.ContentText = this.mainViewModelEx.ContentText.Insert( caretPos, (sender as Button).Content.ToString() );
-            textbox1.Select( caretPos + 1, 1 );
+            textbox1.Select( caretPos + 1, 0 );
         }
 
         /// <summary>
