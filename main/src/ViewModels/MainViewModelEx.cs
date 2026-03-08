@@ -24,7 +24,6 @@ namespace SpecialCharacterAssistance2.ViewModels
         {
             this.OpenFileCommand = new RelayCommand( async (p) => await OpenFileAsync() );
             this.SaveFileCommand = new RelayCommand( (p) => SaveFile() );
-            this.HelpCommand = new RelayCommand( (p) => ShowHelp() );
             this.HtmlConversionCommand = new RelayCommand( async (p) => await ConvertToHtmlAsync() );
         }
 
@@ -45,7 +44,6 @@ namespace SpecialCharacterAssistance2.ViewModels
         // Commands
         public ICommand OpenFileCommand { get; private set; }
         public ICommand SaveFileCommand { get; private set; }
-        public ICommand HelpCommand { get; private set; }
         public ICommand HtmlConversionCommand { get; private set; }
 
         // Data (ジャンル情報は本来ここにあるべき)

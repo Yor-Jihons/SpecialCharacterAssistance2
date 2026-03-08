@@ -16,7 +16,6 @@
                 <MenuItem Header="開く(_O)" Command="{Binding OpenFileCommand}" />
                 <MenuItem Header="名前を付けて保存(_S)" Command="{Binding SaveFileCommand}" />
             </MenuItem>
-            <MenuItem Name="helpMenuItem" Header="ヘルプ(_H)" Command="{Binding HelpCommand}" />
         </Menu>
 
         <ScrollViewer Grid.Row="1" Grid.Column="0">
