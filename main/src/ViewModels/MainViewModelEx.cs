@@ -1,4 +1,8 @@
+using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace SpecialCharacterAssistance2.ViewModels
 {
@@ -10,8 +14,18 @@ namespace SpecialCharacterAssistance2.ViewModels
         /// <summary>
         /// Constructor.
         /// </summary>
-        public MainViewModelEx(){
+        public MainViewModelEx()
+        {
             this.ContentText = "";
+            this.InitCommands();
+        }
+
+        private void InitCommands()
+        {
+            this.OpenFileCommand = new RelayCommand( async (p) => await OpenFileAsync() );
+            this.SaveFileCommand = new RelayCommand( (p) => SaveFile() );
+            this.HelpCommand = new RelayCommand( (p) => ShowHelp() );
+            this.HtmlConversionCommand = new RelayCommand( async (p) => await ConvertToHtmlAsync() );
         }
 
         /// <value>The string for the textbox.</value>
@@ -20,16 +34,83 @@ namespace SpecialCharacterAssistance2.ViewModels
         /// <value>The string for the textbox. (for the data-binding.)</value>
         public string ContentText
         {
-            get
-            {
-                return this.contentText;
-            }
+            get => this.contentText;
             set
             {
                 this.contentText = value;
-                // 通知する
                 this.NotifyPropertyChanged( nameof(ContentText) );
             }
+        }
+
+        // Commands
+        public ICommand OpenFileCommand { get; private set; }
+        public ICommand SaveFileCommand { get; private set; }
+        public ICommand HelpCommand { get; private set; }
+        public ICommand HtmlConversionCommand { get; private set; }
+
+        // Data (ジャンル情報は本来ここにあるべき)
+        public ClassMappings.SpecialCharacters SpecialCharactersData { get; set; }
+
+        private async Task OpenFileAsync()
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                FileName = "Document",
+                DefaultExt = ".txt",
+                Filter = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*",
+                CheckFileExists = true
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                using (var file = new System.IO.StreamReader(dialog.FileName, new System.Text.UTF8Encoding(false)))
+                {
+                    this.ContentText = await file.ReadToEndAsync();
+                }
+            }
+        }
+
+        private void SaveFile()
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog
+            {
+                FileName = "special_character_assistance.txt",
+                DefaultExt = ".txt",
+                Filter = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*",
+                OverwritePrompt = true
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                using (var file = new System.IO.StreamWriter(dialog.FileName, false, new System.Text.UTF8Encoding(false)))
+                {
+                    file.Write(this.ContentText);
+                }
+                MessageBox.Show(dialog.FileName + "に書き込み完了!");
+            }
+        }
+
+        private void ShowHelp()
+        {
+            var startInfo = new System.Diagnostics.ProcessStartInfo("https://yorroom2.cloudfree.jp/help/ja/specialcharacterassistance2.html")
+            {
+                UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(startInfo);
+        }
+
+        private async Task ConvertToHtmlAsync()
+        {
+            if (this.SpecialCharactersData == null) return;
+
+            await Task.Run(() =>
+            {
+                var replacer = new Replacers.Replacer(this.ContentText);
+                replacer.Begin();
+                replacer.Replace(this.SpecialCharactersData);
+                replacer.End();
+                this.ContentText = replacer.TargetText;
+            });
         }
 
         /// <value>The PropertyChanged.</value>
@@ -41,10 +122,7 @@ namespace SpecialCharacterAssistance2.ViewModels
         /// <param name="propertyName">The property name, which was changed.</param>
         protected void NotifyPropertyChanged( string propertyName )
         {
-            if( PropertyChanged != null )
-            {
-                this.PropertyChanged?.Invoke( this, new PropertyChangedEventArgs(propertyName) );
-            }
+            this.PropertyChanged?.Invoke( this, new PropertyChangedEventArgs(propertyName) );
         }
     }
 }

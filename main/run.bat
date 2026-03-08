@@ -1,8 +1,8 @@
 @echo off
 
 set PRODUCT=SpecialCharacterAssistance2
-set CSDEBUGEXE=.\bin\Debug\net6.0-windows\%PRODUCT%.exe
-set CSRELEASEEXE=.\bin\Release\net6.0-windows\%PRODUCT%.exe
+set CSDEBUGEXE=.\bin\Debug\net8.0-windows\%PRODUCT%.exe
+set CSRELEASEEXE=.\bin\Release\net8.0-windows\%PRODUCT%.exe
 set CSPUBLISHEXE=.\bin\Publish\%PRODUCT%.exe
 
 if "%1" == "debug" (
