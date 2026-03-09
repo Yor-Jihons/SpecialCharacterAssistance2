@@ -88,15 +88,6 @@ namespace SpecialCharacterAssistance2.ViewModels
             }
         }
 
-        private void ShowHelp()
-        {
-            var startInfo = new System.Diagnostics.ProcessStartInfo("https://yorroom2.cloudfree.jp/help/ja/specialcharacterassistance2.html")
-            {
-                UseShellExecute = true
-            };
-            System.Diagnostics.Process.Start(startInfo);
-        }
-
         private async Task ConvertToHtmlAsync()
         {
             if (this.SpecialCharactersData == null) return;
