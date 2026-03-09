@@ -43,7 +43,7 @@ public class UnitTest1
         Assert.Equal( "半角", genre.Name );
         Assert.True( genre.CanReplce );
         Assert.False( genre.CanUse );
-        Assert.Equal( 1, genre.SpecialCharacters.Count );
+        Assert.Single( genre.SpecialCharacters );
         Assert.Equal( "<", genre.SpecialCharacters[0].Character );
     }
 
